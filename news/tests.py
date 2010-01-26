@@ -6,18 +6,31 @@ Replace these with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from models import *
 
 class SimpleTest(TestCase):
-    def test_basic_addition(self):
+    def check_response_code(self, url, code):
         """
-        Tests that 1 + 1 always equals 2.
+        Check the url to ensure it returns the proper response code
         """
-        self.failUnlessEqual(1 + 1, 2)
+        response = self.client.get(url)
+        self.failUnlessEqual(response.status_code, code)
 
-__test__ = {"doctest": """
-Another way to test that 1 + 1 is equal to 2.
+    # models
+    def test_article_model(self):
+        """
+        Tests all methods of the article model
+        """
+        testArticle = Article()
+        testArticle.save()
+        retrieveArticle = Article.objects.get()
+        self.failUnlessEqual(testArticle, retrieveArticle)
+        testArticle.delete()
 
->>> 1 + 1 == 2
-True
-"""}
+    # views
+    def test_news_response(self):
+        """
+        Tests that the news view returns code 200
+        """
+        self.check_response_code('/', 200)
 
