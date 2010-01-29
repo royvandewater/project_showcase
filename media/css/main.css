@@ -32,7 +32,14 @@ body {
 
 #navigation ul li {
   float: left;
-  margin: 6px;
+  padding: 6px;
+  border: 0 none;
+  cursor: pointer;
+}
+
+#navigation ul li a {
+  display: block;
+  text-decoration: none;
 }
 
 #main_area {
