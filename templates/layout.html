@@ -14,8 +14,12 @@
   </div>
   <div class="clearboth"></div>
   <div id="main_area" class="ui-widget-content ui-corner-top-left">
+    {% block main_content %}
+    {% endblock %}
   </div>
   <div id="side_navigation" class="ui-widget-header ui-corner-right" >
+    {% block side_nav %}
+    {% endblock %}
   </div>
 </div>
 {% endblock %}
