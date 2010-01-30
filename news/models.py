@@ -4,6 +4,9 @@ from django.db import models
 class Tag(models.Model):
     name = models.CharField(max_length=100)
 
+    def __unicode__(self):
+        return self.name
+
 class Article(models.Model):
     # Date information
     publish_date = models.DateTimeField()
@@ -12,3 +15,5 @@ class Article(models.Model):
     body = models.TextField(null=True, blank=True)
     tags = models.ManyToManyField(Tag)
     
+    def __unicode__(self):
+        return self.title

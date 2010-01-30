@@ -38,7 +38,7 @@ class SimpleTest(TestCase):
         self.failUnlessEqual(art1.publish_date.second, art2.publish_date.second)
         self.failUnlessEqual(art2.title, "test")
         self.failUnlessEqual(art2.body, "body")
-        art1.delete()
+        self.failUnlessEqual(str(art2), "test")
 
     def test_model_tag(self):
         """
@@ -50,6 +50,7 @@ class SimpleTest(TestCase):
         tag2 = Tag.objects.get()
         self.failUnlessEqual(tag1, tag2) 
         self.failUnlessEqual(tag2.name, "test") 
+        self.failUnlessEqual(str(tag2), "test") 
 
     def test_model_relationship_article_tag(self):
         art1 = Article()
