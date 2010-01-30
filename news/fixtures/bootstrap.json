@@ -3,7 +3,7 @@
     "pk": 1, 
     "model": "main.content", 
     "fields": {
-      "body": "", 
+      "body": "&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id orci et velit posuere viverra nec accumsan arcu. Vestibulum blandit sagittis urna ac scelerisque. Curabitur dui ligula, feugiat in suscipit nec, vestibulum ac metus. In vitae porta diam. Nunc porta tristique tempor. Nunc felis leo, rhoncus et fringilla nec, pellentesque a magna. Donec pulvinar interdum magna, ut hendrerit enim interdum non. Phasellus vulputate dictum rutrum. Aliquam sollicitudin, sapien vel sagittis ultrices, dui felis semper nibh, ac eleifend massa lectus quis nisl. Aliquam porttitor nibh nec lorem volutpat ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin ac placerat purus. ", 
       "header": "News", 
       "name": "news", 
       "title": "News"
