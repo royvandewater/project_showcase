@@ -1,0 +1,12 @@
+[
+  {
+    "pk": 1, 
+    "model": "main.content", 
+    "fields": {
+      "body": "", 
+      "header": "News", 
+      "name": "news", 
+      "title": "News"
+    }
+  }
+]
