@@ -42,13 +42,21 @@ body {
   text-decoration: none;
 }
 
-#main_area {
+#main-area {
   float: left;
   width: 800px;
   height: 6in;
 }
 
-#side_navigation {
+#content-header {
+  margin: 30px 60px;
+}
+
+#content-body {
+  margin: 0 35px;
+}
+
+#side-navigation {
   float: left;
   min-height: 300px;
   width: 155px;
