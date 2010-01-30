@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^project_showcase/', include('project_showcase.foo.urls')),
     (r'^$', 'news.views.news'),
+    (r'^about/$', 'about.views.about'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

@@ -1,0 +1,12 @@
+[
+  {
+    "pk": 2, 
+    "model": "main.content", 
+    "fields": {
+      "body": "&nbsp;&nbsp;&nbsp;&nbsp;Nam eget libero leo. Aliquam auctor placerat ante eu vehicula. Maecenas blandit hendrerit metus, sed posuere sapien malesuada quis. Sed molestie lorem non tortor faucibus sit amet dapibus est vehicula. Nullam auctor, odio quis pulvinar porttitor, massa magna condimentum justo, ut suscipit ante velit vel mi. Duis facilisis justo et turpis pellentesque posuere vitae quis nunc. In hac habitasse platea dictumst. Aenean id libero ut est pulvinar vestibulum eget sollicitudin ante. Nulla tincidunt enim ut lorem cursus ultricies. Proin dictum blandit sem, nec venenatis mi elementum sed. Nullam enim nibh, pharetra vel varius eu, consectetur in erat. Ut arcu felis, tempor sed vehicula ut, convallis id dolor.\r\n<br /><br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;Proin dignissim metus eget ipsum consectetur ut luctus ipsum pellentesque. Aenean eget erat nunc. Nulla commodo tincidunt velit ut ornare. Aliquam erat volutpat. In hendrerit ullamcorper justo, non rutrum magna suscipit ac. Integer imperdiet dignissim justo, ac commodo nulla bibendum quis. Integer et urna tortor. In tempor leo eros, eget semper orci. Praesent commodo vestibulum consequat. In eget molestie nunc. Maecenas sed rhoncus risus. Morbi imperdiet magna pulvinar risus sodales eu porta purus fermentum. Pellentesque tristique lacinia dictum. Aliquam sit amet lacus ac arcu cursus aliquet. Cras ultrices eleifend mauris et volutpat. ", 
+      "header": "About xmms2_django", 
+      "name": "about", 
+      "title": "About xmms2_django"
+    }
+  }
+]
