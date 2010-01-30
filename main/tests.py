@@ -9,12 +9,6 @@ from django.test import TestCase
 from models import *
 
 class SimpleTest(TestCase):
-    def check_response_code(self, url, code):
-        """
-        Check the url to ensure it returns the proper response code
-        """
-        response = self.client.get(url)
-        self.failUnlessEqual(response.status_code, code)
 
     def testContent(self):
         """
