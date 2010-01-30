@@ -11,6 +11,8 @@ from models import *
 import datetime
 
 class SimpleTest(TestCase):
+    fixtures = ['bootstrap']
+
     def check_response_code(self, url, code):
         """
         Check the url to ensure it returns the proper response code
@@ -75,4 +77,4 @@ class SimpleTest(TestCase):
         """
         Tests that the news view returns code 200
         """
-        self.check_response_code('/', 200)
+        self.check_response_code("/", 200)
