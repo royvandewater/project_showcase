@@ -5,6 +5,6 @@ from models import *
 from main.models import Content
 
 def news(request):
-    content = Content.bodels.objects.get(name='news') 
+    content = Content.objects.get(name='news') 
     articles = Article.objects.order_by('publish_date')[:10]
     return render_to_response('news/news.html', locals(), context_instance=RequestContext(request))

@@ -76,4 +76,3 @@ class SimpleTest(TestCase):
         Tests that the news view returns code 200
         """
         self.check_response_code('/', 200)
-

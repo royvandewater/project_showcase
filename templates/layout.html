@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}{{ content.title }}{% endblock %}
 {% block html_body %}
 <div id="wrapper" class="ui-widget">
   <div id="navigation" class="ui-widget-header ui-corner-top">
@@ -14,6 +15,10 @@
   </div>
   <div class="clearboth"></div>
   <div id="main_area" class="ui-widget-content ui-corner-top-left">
+    {{ content.header }}
+    <div class="content-body">
+      {{ content.body }}
+    </div>
     {% block main_content %}
     {% endblock %}
   </div>
