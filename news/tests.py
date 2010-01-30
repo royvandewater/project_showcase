@@ -28,7 +28,6 @@ class SimpleTest(TestCase):
         their own function
         """
         art1 = Article()
-        art1.creation_date = datetime.datetime.now()
         art1.publish_date = datetime.datetime.now()
         art1.title = "test"
         art1.body = "body"
@@ -36,7 +35,6 @@ class SimpleTest(TestCase):
 
         art2 = Article.objects.get()
         self.failUnlessEqual(art1, art2)
-        self.failUnlessEqual(art1.creation_date.second, art2.creation_date.second)
         self.failUnlessEqual(art1.publish_date.second, art2.publish_date.second)
         self.failUnlessEqual(art2.title, "test")
         self.failUnlessEqual(art2.body, "body")

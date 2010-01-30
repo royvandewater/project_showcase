@@ -6,7 +6,6 @@ class Tag(models.Model):
 
 class Article(models.Model):
     # Date information
-    creation_date = models.DateTimeField()
     publish_date = models.DateTimeField()
     # Content
     title = models.CharField(max_length=255) 
