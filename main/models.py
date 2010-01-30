@@ -8,4 +8,4 @@ class Content(models.Model):
     body = models.TextField(null=True,blank=True)
 
     def __unicode__(self):
-        return self.title
+        return self.name
