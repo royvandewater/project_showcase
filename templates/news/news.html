@@ -1,11 +1,25 @@
 {% extends "layout.html" %}
 
 {% block main_content %}
+  {% for article in articles %}
+    <div class="news_article">
+      <h3>{{ article.title }}</h3>
+      <h4>{{ article.publish_date }}</h4>
+      <div class="news_article_body">
+        {{ article.body|safe }}
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}
 
 {% block side_navigation %}
 <h3>Archive</h3>
-<ul>
-  <li>August</li>
+<ul class="level_a">
+  <li>
+    <h4>2010</h4>
+    <ul class="level_b">
+     <li>January</li>
+    </ul>
+  </li>
 </ul>
 {% endblock %}

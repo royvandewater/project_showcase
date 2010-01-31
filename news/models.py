@@ -12,7 +12,7 @@ class Article(models.Model):
     publish_date = models.DateTimeField()
     # Content
     title = models.CharField(max_length=255) 
-    body = models.TextField(null=True, blank=True)
+    body = models.TextField(null=True, blank=True, help_text="can use html in this field")
     tags = models.ManyToManyField(Tag)
     
     def __unicode__(self):
