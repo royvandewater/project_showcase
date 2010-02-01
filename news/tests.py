@@ -33,7 +33,7 @@ class SimpleTest(TestCase):
         art1.body = "body"
         art1.save()
 
-        art2 = Article.objects.get()
+        art2 = Article.objects.get(title="test")
         self.failUnlessEqual(art1, art2)
         self.failUnlessEqual(art1.publish_date.second, art2.publish_date.second)
         self.failUnlessEqual(art2.title, "test")
@@ -47,7 +47,7 @@ class SimpleTest(TestCase):
         tag1 = Tag()
         tag1.name = "test"
         tag1.save()
-        tag2 = Tag.objects.get()
+        tag2 = Tag.objects.get(name="test")
         self.failUnlessEqual(tag1, tag2) 
         self.failUnlessEqual(tag2.name, "test") 
         self.failUnlessEqual(str(tag2), "test") 
@@ -67,7 +67,7 @@ class SimpleTest(TestCase):
         art1.save()
         art1.tags.add(tag1, tag2)
         art1.save()
-        tags = Article.objects.get().tags.all()
+        tags = Article.objects.get(title="test").tags.all()
         self.failUnlessEqual(tags[0].name, "tag1")
         self.failUnlessEqual(tags[1].name, "tag2")
 

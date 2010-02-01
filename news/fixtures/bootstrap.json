@@ -8,5 +8,24 @@
       "name": "news", 
       "title": "News"
     }
+  },
+  {
+    "pk": 1, 
+    "model": "news.tag", 
+    "fields": {
+      "name": "demo"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "news.article", 
+    "fields": {
+      "body": "&nbsp;&nbsp;&nbsp;&nbsp;Suspendisse malesuada luctus tortor, quis feugiat diam iaculis id. Aenean sed mauris id nunc condimentum pulvinar sit amet eget nunc. Sed euismod purus molestie velit porta aliquam. Etiam ligula tellus, iaculis at ornare hendrerit, tempor a augue. Maecenas pretium dui ut mi elementum hendrerit. Quisque lacinia aliquam consectetur. Duis vel ipsum nec felis luctus accumsan id ac nibh. Proin facilisis tellus vitae nisi lobortis nec consectetur turpis rhoncus. Cras in dolor orci. Nam porttitor luctus libero, eget adipiscing libero eleifend eu. Maecenas vel metus enim, nec sodales ante. Fusce enim neque, auctor ac varius id, fermentum eu libero. ", 
+      "tags": [
+        1
+      ], 
+      "publish_date": "2010-01-30 15:39:51", 
+      "title": "First Article"
+    }
   }
 ]
