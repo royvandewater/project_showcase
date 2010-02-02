@@ -7,6 +7,7 @@ Replace these with more appropriate tests for your application.
 
 from django.test import TestCase
 from models import *
+from views import *
 
 import datetime
 
@@ -70,6 +71,11 @@ class SimpleTest(TestCase):
         tags = Article.objects.get(title="test").tags.all()
         self.failUnlessEqual(tags[0].name, "tag1")
         self.failUnlessEqual(tags[1].name, "tag2")
+
+    # view helpers
+    def test_get_article_dates(self):
+        dates = get_article_dates()
+        self.failUnlessEqual(dates[2010][0].year, 2010)
 
     # views
     def test_view_news(self):
