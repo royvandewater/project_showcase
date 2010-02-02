@@ -4,7 +4,19 @@ from django.template import RequestContext
 from models import *
 from main.models import Content
 
+def get_article_dates():
+    # Get list of all years with articles in them
+    years = Article.objects.dates('publish_date', 'year')
+    # For each year, get a list of year/month pairs
+    dates = dict()
+    for year in years:
+      dates[year.year] = Article.objects.filter(publish_date__year=year.year).dates('publish_date', 'month')
+    # This solution should be worst case O(12n) where n is
+    # The number of years
+    return dates
+
 def news(request):
     content = Content.objects.get(name='news') 
     articles = Article.objects.order_by('publish_date')[:10]
+    dates = get_article_dates()
     return render_to_response('news/news.html', locals(), context_instance=RequestContext(request))

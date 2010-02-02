@@ -1,0 +1,13 @@
+<h3>Archive</h3>
+<ul class="level_a">
+  {% for year in dates.items reversed %}
+  <li>
+  <h4>{{ year|first }}</h4>
+    <ul class="level_b">
+      {% for month in year|last %}
+      <li>{{ month|date:"F" }}</li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+</ul>

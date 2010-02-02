@@ -46,7 +46,7 @@ body {
 #main-area {
   float: left;
   width: 800px;
-  height: 6in;
+  min-height: 600px;
 }
 
 #content-header {
@@ -58,7 +58,11 @@ body {
 }
 
 #content-page {
-  margin: 35px;
+  margin: 0 35px;
+}
+
+.news_article {
+  margin-top: 30px;
 }
 
 .news_article h3, .news_article h4 {
@@ -92,6 +96,10 @@ body {
 #side-navigation-content ul.level_a {
   margin-top: 30px;
   list-style: none;
+}
+
+#side-navigation-content ul.level_a li h4 {
+  margin-top: 10px;
 }
 
 #side-navigation-content ul.level_b {
