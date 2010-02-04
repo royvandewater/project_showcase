@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Version(models.Model):
     version = models.CharField(max_length=20)
+    release_date = models.DateTimeField()
 
     def __unicode__(self):
         return "v{0}".format(self.version)
