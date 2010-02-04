@@ -3,6 +3,7 @@ from models import *
 from django.test import TestCase
 
 class SimpleTest(TestCase):
+    fixtures = ['testdata']
     def check_response_code(self, url, code):
         """
         Check the url to ensure it returns the proper response code
