@@ -10,18 +10,39 @@ class SimpleTest(TestCase):
         response = self.client.get(url)
         self.failUnlessEqual(response.status_code, code)
 
+    def test_model_version(self):
+        ver = Version()
+        ver.version = "0.2b"
+        ver.save()
+        ver2 = Version.objects.get(version="0.2b")
+        self.failUnlessEqual(ver2.version, "0.2b")
+        self.failUnlessEqual(str(ver2), "v0.2b")
+
     def test_model_screenshot(self):
         """
         Tests all methods of the screenshot model
         """
+        ver = Version()
+        ver.version = "0.2b"
+        ver.save()
         shot = Screenshot()
         shot.title = "title"
-        shot.version = 2.0
+        shot.version = ver
         shot.save()
         shot2 = Screenshot.objects.get(title="title")
         self.failUnlessEqual(shot2.title, "title")
-        self.failUnlessEqual(shot2.version, 2.0)
         self.failUnlessEqual(str(shot2), "title")
+
+    def test_model_relationship_screenshot_version(self):
+        ver1 = Version()
+        ver1.version = "0.2b"
+        ver1.save()
+        shot = Screenshot()
+        shot.title = "title"
+        shot.version = ver1
+        shot.save()
+        shot2 = Screenshot.objects.get(title="title")
+        self.failUnlessEqual(str(shot2.version), "v0.2b")
 
     def test_view_screenshots(self):
         """
