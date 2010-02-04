@@ -83,3 +83,9 @@ class SimpleTest(TestCase):
         Tests that the news view returns code 200
         """
         self.check_response_code("/", 200)
+
+    def test_view_archive(self):
+        """
+        Tests that the archive view returns code 200
+        """
+        self.check_response_code("/archive/2010/01/", 200)
