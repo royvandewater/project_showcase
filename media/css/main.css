@@ -53,6 +53,10 @@ body {
   margin: 30px 60px;
 }
 
+#content-header h2 {
+  font-size: 1em;
+}
+
 #content-body {
   margin: 0 35px;
 }
