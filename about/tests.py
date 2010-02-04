@@ -8,7 +8,7 @@ Replace these with more appropriate tests for your application.
 from django.test import TestCase
 
 class SimpleTest(TestCase):
-    fixtures = ['bootstrap']
+    fixtures = ['testdata']
 
     def check_response_code(self, url, code):
         """
