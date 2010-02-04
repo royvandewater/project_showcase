@@ -1,1 +1,11 @@
 {% extends "layout.html" %}
+
+{% block main_content %}
+<div id="screenshot_gallery">
+    {% for screenshot in screenshots %}
+      <div class="screenshot_thumb">
+        <a href="{{ screenshot.full.url }}"><img src="{{ screenshot.thumbnail.url }}" alt="{{ screenshot.title }}" /></a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

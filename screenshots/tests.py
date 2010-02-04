@@ -18,6 +18,7 @@ class SimpleTest(TestCase):
         """
         Tests that latest version returns the correct version
         """
+        Version.objects.all().delete()
         ver1 = Version()
         ver1.version = "0.2b"
         ver1.release_date = datetime.datetime(2009,12,01)

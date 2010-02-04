@@ -111,3 +111,16 @@ body {
   margin-top: 10px;
   list-style: none;
 }
+
+#screenshot_gallery {
+}
+
+.screenshot_thumb {
+  float: left;
+  margin: 30px;
+}
+
+.screenshot_thumb img {
+  height: 225px;
+  width: 300px;
+}
