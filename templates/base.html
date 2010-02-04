@@ -6,12 +6,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     <title>Project Name - {% block title %}Project Showcase{% endblock %}</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.0.css" />
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}themes/blitzer/jquery-ui-1.8rc1.custom.css" />
     {% if debug %}
     <script type="text/javascript" src="http://localhost/jquery/jquery.js" ></script>
     {% else %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script>
     {% endif %}
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.0.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.easing-1.3.pack.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/main.js"></script>
     
     {% block html_head %}
