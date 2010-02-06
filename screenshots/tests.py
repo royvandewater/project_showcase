@@ -14,22 +14,6 @@ class SimpleTest(TestCase):
         response = self.client.get(url)
         self.failUnlessEqual(response.status_code, code)
 
-    def test_helper_get_latest_version(self):
-        """
-        Tests that latest version returns the correct version
-        """
-        Version.objects.all().delete()
-        ver1 = Version()
-        ver1.version = "0.2b"
-        ver1.release_date = datetime.datetime(2009,12,01)
-        ver1.save()
-        ver2 = Version()
-        ver2.version = "0.3b"
-        ver2.release_date = datetime.datetime(2010,01,01)
-        ver2.save()
-        ver = get_latest_version()
-        self.failUnlessEqual(str(ver), "v0.3b")
-
     def test_model_version(self):
         ver = Version()
         ver.version = "0.2b"
