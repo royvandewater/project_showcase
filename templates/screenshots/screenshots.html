@@ -4,7 +4,8 @@
 <div id="screenshot_gallery">
     {% for screenshot in screenshots %}
       <div class="screenshot_thumb">
-        <a href="{{ screenshot.full.url }}" rel="screenshot"><img src="{{ screenshot.thumbnail.url }}" alt="{{ screenshot.title }}" class="ui-corner-all" title="{{ screenshot.title}}"/></a>
+        <a href="{{ screenshot.full.url }}" rel="screenshot"><img src="{{ screenshot.thumbnail.url }}" alt="{{ screenshot.title }}" class="ui-corner-top" title="{{ screenshot.title}}"/></a>
+        <div>{{ screenshot.title }}</div>
       </div>
     {% endfor %}
   </div>

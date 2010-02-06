@@ -117,10 +117,26 @@ body {
 
 .screenshot_thumb {
   float: left;
-  margin: 30px;
+  margin: 30px 30px 0;
 }
 
 .screenshot_thumb img {
   height: 225px;
   width: 300px;
+  z-index: 2;
+}
+
+.screenshot_thumb div {
+  z-index: 1;
+  position: relative;
+  bottom: 23px;
+  background-color: black;
+  color: white;
+  padding: 2px;
+  font-size: 0.75em;
+  font-weight: bold;
+  filter:alpha(opacity=75);
+  -moz-opacity:0.75;
+  -khtml-opacity: 0.75;
+  opacity: 0.75;
 }
