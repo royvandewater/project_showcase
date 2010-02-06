@@ -38,5 +38,15 @@
       "name": "screenshots", 
       "title": "Screenshots"
     }
+  }, 
+  {
+    "pk": 5, 
+    "model": "main.content", 
+    "fields": {
+      "body": "", 
+      "header": "Downloads", 
+      "name": "downloads", 
+      "title": "Downloads"
+    }
   }
 ]

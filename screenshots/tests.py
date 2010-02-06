@@ -57,3 +57,5 @@ class SimpleTest(TestCase):
         Tests that the screenshots view returns code 200
         """
         self.check_response_code("/screenshots/", 200)
+        self.check_response_code("/screenshots/0.3a/", 200)
+
