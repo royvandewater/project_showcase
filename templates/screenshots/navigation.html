@@ -1,0 +1,8 @@
+<h3>Versions</h3>
+<ul class="level_a">
+  {% for version in versions %}
+  <li>
+    <a href="{% url screenshots.views.past_version version.version|urlencode %}">{{ version }}</a>
+  </li>
+  {% endfor %}
+</ul>

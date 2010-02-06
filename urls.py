@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^$', 'news.views.news'),
     (r'^archive/(\d+)/(\d+)/$', 'news.views.archive'),
     (r'^about/$', 'about.views.about'),
+    (r'^screenshots/(?P<version>[0-9a-zA-Z\.-]+)/$', 'screenshots.views.past_version'),
     (r'^screenshots/$', 'screenshots.views.main'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
