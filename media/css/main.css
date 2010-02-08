@@ -140,3 +140,9 @@ body {
   -khtml-opacity: 0.75;
   opacity: 0.75;
 }
+
+div.git-link {
+  background-color: #eee;
+  padding: 3px 10px;
+  margin-top: 10px;
+}
