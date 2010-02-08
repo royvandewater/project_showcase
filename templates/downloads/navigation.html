@@ -1,0 +1,8 @@
+<h3>Releases</h3>
+<ul class="level_a">
+  {% for release in releases %}
+  <li>
+    <a href="{% url downloads.views.past_release release.version|urlencode %}">{{ release }}</a>
+  </li>
+  {% endfor %}
+</ul>

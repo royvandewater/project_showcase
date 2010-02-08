@@ -146,3 +146,7 @@ div.git-link {
   padding: 3px 10px;
   margin-top: 10px;
 }
+
+div.changelog {
+  margin-bottom: 10px;
+}

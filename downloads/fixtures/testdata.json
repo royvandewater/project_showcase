@@ -8,5 +8,15 @@
       "name": "downloads", 
       "title": "Downloads"
     }
+  },
+  {
+    "pk": 1, 
+    "model": "downloads.release", 
+    "fields": {
+      "change_log": "* First public release", 
+      "release_date": "2010-02-06 16:38:40", 
+      "version": "0.5", 
+      "file": "upload/releases/partybeat.tar.gz"
+    }
   }
 ]

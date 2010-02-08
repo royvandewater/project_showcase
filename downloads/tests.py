@@ -26,12 +26,14 @@ class SimpleTest(TestCase):
         rel.version = "0.3b"
         rel.release_date = datetime.datetime(2010, 1, 1)
         rel.change_log = "Fixed some stuff"
+        rel.file.name = "this/test"
         rel.save()
         rel2 = Release.objects.get(version="0.3b")
         self.failUnlessEqual(rel2.version, "0.3b")
         self.failUnlessEqual(rel2.release_date.year, 2010)
         self.failUnlessEqual(rel2.change_log, "Fixed some stuff")
         self.failUnlessEqual(str(rel2), "v0.3b")
+        self.failUnlessEqual(rel2.filename(), "test")
         rel3 = Release()
         rel3.version = "0.3b"
         rel3.release_date = datetime.datetime.now()

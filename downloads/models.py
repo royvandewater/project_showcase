@@ -10,3 +10,5 @@ class Release(models.Model):
     def __unicode__(self):
         return "v" + self.version
 
+    def filename(self):
+        return self.file.name.rpartition("/")[2]

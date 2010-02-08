@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^screenshots/(?P<version>[0-9a-zA-Z\.-]+)/$', 'screenshots.views.past_version'),
     (r'^screenshots/$', 'screenshots.views.main'),
     (r'^downloads/$', 'downloads.views.main'),
+    (r'^downlodas/(?P<release>)/$', 'downloads.views.past_release'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

@@ -1,1 +1,12 @@
 {% extends "layout.html" %}
+
+{% block main_content %}
+<div class="changelog">
+  {{ current_release.change_log }}
+</div>
+<a href="{{ current_release.file.url }}">{{ current_release.filename }}</a>
+{% endblock %}
+
+{% block side_navigation %}
+  {% include 'screenshots/navigation.html' %}
+{% endblock %}
