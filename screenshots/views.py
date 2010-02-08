@@ -5,8 +5,6 @@ from django.template import RequestContext
 from models import *
 from main.models import Content
 
-from helpers import *
-
 def main(request):
     """
     Loads all screenshots from the latest version
