@@ -9,3 +9,4 @@ class Release(models.Model):
 
     def __unicode__(self):
         return "v{0}".format(self.version)
+
