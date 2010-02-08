@@ -6,7 +6,7 @@ class Version(models.Model):
     release_date = models.DateTimeField()
 
     def __unicode__(self):
-        return "v{0}".format(self.version)
+        return "v" + self.version
 
 class Screenshot(models.Model):
     title = models.CharField(max_length=100)

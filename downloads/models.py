@@ -8,5 +8,5 @@ class Release(models.Model):
     change_log = models.TextField(null=True,blank=True)
 
     def __unicode__(self):
-        return "v{0}".format(self.version)
+        return "v" + self.version
 
