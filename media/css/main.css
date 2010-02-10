@@ -13,6 +13,7 @@ body {
 
 .ui-corner-top-left {
   -moz-border-radius-topleft: 25px;
+  -webkit-border-top-left-radius: 25px;
 }
 
 #wrapper {
