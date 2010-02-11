@@ -12,6 +12,4 @@ $(document).ready(function(){
         target_url = $(this).find("a").attr("href");
         window.location = target_url;
     });
-
-    $(".screenshot_thumb > a").fancybox();
 });

@@ -2,11 +2,15 @@
 
 {% block main_content %}
 <div class="changelog">
+  <h2>Changelog</h2>
   {{ current_release.change_log }}
 </div>
-<a href="{{ current_release.file.url }}">{{ current_release.filename }}</a>
+<div class="files">
+  <h2>Files</h2>
+  <a href="{{ current_release.file.url }}">{{ current_release.filename }}</a>
+</div>
 {% endblock %}
 
 {% block side_navigation %}
-  {% include 'screenshots/navigation.html' %}
+  {% include 'downloads/navigation.html' %}
 {% endblock %}

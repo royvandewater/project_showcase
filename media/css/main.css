@@ -46,8 +46,9 @@ body {
 
 #main-area {
   float: left;
-  width: 800px;
+  width: 750px;
   min-height: 600px;
+  padding: 25px;
 }
 
 #content-header {
@@ -59,15 +60,15 @@ body {
 }
 
 #content-body {
-  margin: 0 75px;
+  margin: 0;
 }
 
 #content-page {
-  margin: 0 75px;
+  margin: 0;
 }
 
 .news_article {
-  margin-top: 30px;
+  margin: 30px 75px 0;
 }
 
 .news_article h3, .news_article h4 {
@@ -150,4 +151,8 @@ div.git-link {
 
 div.changelog {
   margin-bottom: 10px;
+}
+
+div.changelog h2, div.files h2 {
+  font-size: 1.2em;
 }

@@ -22,7 +22,9 @@
       {% endif %}
     </div>
     <div id="content-body">
-      {{ content.body|safe }}
+      {% block content_body %}
+        {{ content.body|safe }}
+      {% endblock %}
     </div>
     <div id="content-page">
       {% block main_content %}

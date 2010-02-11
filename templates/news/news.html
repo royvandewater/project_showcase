@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 
+{% block content_body %}
+<div class="news_article">
+  {{ content.body|safe }}
+</div>
+{% endblock %}
+
 {% block main_content %}
   {% for article in articles %}
     <div class="news_article">

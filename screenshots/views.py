@@ -13,6 +13,7 @@ def main(request):
     versions = Version.objects.order_by('release_date').reverse()
     sub_header = versions[0]
     screenshots = Screenshot.objects.filter(version=sub_header)
+    include_fancybox = True
     return render_to_response('screenshots/screenshots.html', locals(), context_instance=RequestContext(request))
 
 def past_version(request, version):
@@ -20,5 +21,6 @@ def past_version(request, version):
     versions = Version.objects.order_by('release_date').reverse()
     sub_header = Version.objects.get(version=version)
     screenshots = Screenshot.objects.filter(version=sub_header)
+    include_fancybox = True
     return render_to_response('screenshots/screenshots.html', locals(), context_instance=RequestContext(request))
     pass
