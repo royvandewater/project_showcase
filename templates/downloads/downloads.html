@@ -3,11 +3,11 @@
 {% block main_content %}
 <div class="changelog">
   <h2>Changelog</h2>
-  {{ current_release.change_log }}
+  {{ active_release.change_log }}
 </div>
 <div class="files">
   <h2>Files</h2>
-  <a href="{{ current_release.file.url }}">{{ current_release.filename }}</a>
+  <a href="{{ active_release.file.url }}">{{ active_release.filename }}</a>
 </div>
 {% endblock %}
 
