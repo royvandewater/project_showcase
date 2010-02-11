@@ -11,4 +11,4 @@ class Release(models.Model):
         return "v" + self.version
 
     def filename(self):
-        return self.file.url.rpartition("/")[2]
+        return self.file.url.split("/")[-1]
