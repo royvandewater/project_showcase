@@ -44,3 +44,9 @@ class SimpleTest(TestCase):
         Tests that the main view returns 200
         """
         self.check_response_code("/downloads/", 200)
+
+    def test_view_past_release(self):
+        """
+        Tests that the past release view returns 200
+        """
+        self.check_response_code("/downloads/0.50/", 200)
