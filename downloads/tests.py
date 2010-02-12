@@ -1,10 +1,3 @@
-"""
-This file demonstrates two different styles of tests (one doctest and one
-unittest). These will both pass when you run "manage.py test".
-
-Replace these with more appropriate tests for your application.
-"""
-
 import django
 from django.test import TestCase
 
@@ -12,7 +5,7 @@ import datetime
 
 from models import *
 
-class SimpleTest(TestCase):
+class DownloadsTest(TestCase):
     fixtures = ['testdata']
     def check_response_code(self, url, code):
         """

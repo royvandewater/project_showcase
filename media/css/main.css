@@ -21,6 +21,14 @@ body {
   margin: 10px auto 10px;
 }
 
+#login_info {
+  float: left;
+  font-size: 11pt;
+  margin-left: 40px;
+  margin-top: 5px;
+  background: none #eee;
+}
+
 #navigation {
   float: right;
   font-size: 12px;

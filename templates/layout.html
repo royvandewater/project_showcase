@@ -2,6 +2,11 @@
 {% block title %}{{ content.title }}{% endblock %}
 {% block html_body %}
 <div id="wrapper" class="ui-widget">
+  <div id="login_info" class="ui-widget-content">
+    {% if not logged_in %}
+    <a href="#">login</a> or <a href="#">register</a>
+    {% endif %}
+  </div>
   <div id="navigation" class="ui-widget-header ui-corner-top">
     <ul>
       <li><a href="{% url news.views.news %}">News</a></li>
