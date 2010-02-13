@@ -14,6 +14,9 @@ class DownloadsTest(TestCase):
         response = self.client.get(url)
         self.failUnlessEqual(response.status_code, code)
 
+    def url(self, url):
+        return self.client.get("/downloads{0}".format(url))
+
     def test_model_release(self):
         rel = Release()
         rel.version = "0.3b"
@@ -36,10 +39,10 @@ class DownloadsTest(TestCase):
         """
         Tests that the main view returns 200
         """
-        self.check_response_code("/downloads/", 200)
+        self.assertContains(self.url("/"), "<h1>Downloads</h1>", status_code=200)
 
     def test_view_past_release(self):
         """
         Tests that the past release view returns 200
         """
-        self.check_response_code("/downloads/0.50/", 200)
+        self.assertContains(self.url("/0.50/"), "<h2>v0.5</h2>", status_code=200)
