@@ -21,6 +21,9 @@ class SimpleTest(TestCase):
         response = self.client.get(url)
         self.failUnlessEqual(response.status_code, code)
 
+    def url(self, url):
+        return self.client.get("/news{0}".format(url))
+
     # models
 
     def test_model_article(self):
@@ -82,10 +85,10 @@ class SimpleTest(TestCase):
         """
         Tests that the news view returns code 200
         """
-        self.check_response_code("/", 200)
+        self.assertContains( self.url("/"), "<h1>News</h1>", status_code=200)
 
     def test_view_archive(self):
         """
         Tests that the archive view returns code 200
         """
-        self.check_response_code("/archive/2010/01/", 200)
+        self.assertContains( self.url("/archive/2010/01/"), "<h2>January, 2010</h2>", status_code=200)

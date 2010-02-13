@@ -6,6 +6,9 @@ from django.test import TestCase
 class SimpleTest(TestCase):
     fixtures = ['testdata']
 
+    def url(self, url):
+        return self.client.get("/screenshots{0}".format(url))
+
     def test_model_version(self):
         ver = Version()
         ver.version = "0.2b"
@@ -48,11 +51,11 @@ class SimpleTest(TestCase):
         """
         Tests that the screenshots view returns code 200
         """
-        self.assertContains(self.client.get("/screenshots/"), "<h1>Screenshots</h1>", status_code=200)
-        self.assertContains(self.client.get("/screenshots/"), "<h2>v0.5b</h2>", status_code=200)
+        self.assertContains(self.url("/"), "<h1>Screenshots</h1>", status_code=200)
+        self.assertContains(self.url("/"), "<h2>v0.5b</h2>", status_code=200)
 
     def test_view_past_version(self):
         """
         Tests that the past_versions view returns code 200
         """
-        self.assertContains(self.client.get("/screenshots/0.3a/"), "<h2>v0.3a</h2>", status_code=200)
+        self.assertContains(self.url("/0.3a/"), "<h2>v0.3a</h2>", status_code=200)
