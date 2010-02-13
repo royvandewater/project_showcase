@@ -7,12 +7,6 @@ from models import *
 
 class DownloadsTest(TestCase):
     fixtures = ['testdata']
-    def check_response_code(self, url, code):
-        """
-        Check the url to ensure it returns the proper response code
-        """
-        response = self.client.get(url)
-        self.failUnlessEqual(response.status_code, code)
 
     def url(self, url):
         return self.client.get("/downloads{0}".format(url))
