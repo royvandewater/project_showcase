@@ -10,15 +10,12 @@ from django.test import TestCase
 class SimpleTest(TestCase):
     fixtures = ['testdata']
 
-    def check_response_code(self, url, code):
-        """
-        Check the url to ensure it returns the proper response code
-        """
-        response = self.client.get(url)
-        self.failUnlessEqual(response.status_code, code)
+    def url(self, url):
+        return self.client.get("/about{0}".format(url))
+
 
     def test_about_page(self):
         """
         Test to see if about page still shows
         """
-        self.check_response_code('/about/', 200)
+        self.assertContains(self.url('/'), "<h1>About Partybeat</h1>",  status_code=200)
