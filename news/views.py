@@ -17,15 +17,15 @@ def get_article_dates():
     # The number of years
     return dates
 
-def news(request):
+def index(request):
     content = Content.objects.get(name='news') 
     articles = Article.objects.order_by('publish_date')[:10]
     dates = get_article_dates()
-    return render_to_response('news/news.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('news/index.html', locals(), context_instance=RequestContext(request))
 
-def archive(request, year, month):
+def show(request, year, month):
     content = Content.objects.get(name='archive')
     articles = Article.objects.filter(publish_date__year=year).filter(publish_date__month=month).order_by('publish_date')
     dates = get_article_dates()
     sub_header = datetime.date(int(year), int(month), 1).strftime("%B, %Y")
-    return render_to_response('news/news.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('news/index.html', locals(), context_instance=RequestContext(request))

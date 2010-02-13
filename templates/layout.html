@@ -9,12 +9,12 @@
   </div>
   <div id="navigation" class="ui-widget-header ui-corner-top">
     <ul>
-      <li><a href="{% url news.views.news %}">News</a></li>
-      <li><a href="{% url about.views.about %}">About</a></li>
-      <li><a href="{% url downloads.views.main %}">Downloads</a></li>
+      <li><a href="{% url news.views.index %}">News</a></li>
+      <li><a href="{% url about.views.index %}">About</a></li>
+      <li><a href="{% url downloads.views.index %}">Downloads</a></li>
       <li><a href="#">Wiki</a></li>
       <li><a href="#">Issue Tracker</a></li>
-      <li><a href="{% url screenshots.views.main %}">Screenshots</a></li>
+      <li><a href="{% url screenshots.views.index %}">Screenshots</a></li>
       <li><a href="#">Dev Log</a></li>
     </ul>
   </div>
@@ -28,7 +28,9 @@
     </div>
     <div id="content-body">
       {% block content_body %}
-        {{ content.body|safe }}
+        <div class="narrow_content">
+          {{ content.body|safe }}
+        </div>
       {% endblock %}
     </div>
     <div id="content-page">

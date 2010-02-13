@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+<div class="narrow_content">
+  <div class="changelog">
+    <h2>Changelog</h2>
+    {{ active_release.change_log }}
+  </div>
+  <div class="files">
+    <h2>Files</h2>
+    <a href="{{ active_release.file.url }}">{{ active_release.filename }}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block side_navigation %}
+  {% include 'downloads/navigation.html' %}
+{% endblock %}

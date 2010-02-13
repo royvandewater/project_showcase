@@ -1,4 +1,4 @@
-from django.test import TestCaso
+from django.test import TestCase
 
 class UserTests(TestCase):
 
@@ -6,4 +6,4 @@ class UserTests(TestCase):
         """
         Tests the user registration view
         """
-        self.assertContains(self.client.get("/users/new/"), "Register", status_code=200)
+        self.assertContains(self.client.get("/users/new/"), "<h2>Register</h2>", status_code=200)

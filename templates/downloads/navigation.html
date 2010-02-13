@@ -2,7 +2,7 @@
 <ul class="level_a">
   {% for release in releases %}
   <li>
-    <a href="{% url downloads.views.past_release release.version|urlencode %}">{{ release }}</a>
+    <a href="{% url downloads.views.show release.version|urlencode %}">{{ release }}</a>
   </li>
   {% endfor %}
 </ul>

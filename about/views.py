@@ -5,6 +5,6 @@ from models import *
 from main.models import Content
 
 # Create your views here.
-def about(request):
-    content = Content.objects.get(name='about') 
-    return render_to_response('about/about.html', locals(), context_instance=RequestContext(request))
+def index(request):
+    content = Content.objects.get(name='about')
+    return render_to_response('about/index.html', locals(), context_instance=RequestContext(request))

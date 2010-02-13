@@ -60,7 +60,7 @@ body {
 }
 
 #content-header {
-  margin: 30px 60px;
+  margin: 30px 75px;
 }
 
 #content-header h2 {
@@ -73,6 +73,10 @@ body {
 
 #content-page {
   margin: 0;
+}
+
+.narrow_content {
+  margin: 0 75px;
 }
 
 .news_article {

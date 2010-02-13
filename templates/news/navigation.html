@@ -5,7 +5,7 @@
   <h4>{{ year|first }}</h4>
     <ul class="level_b">
       {% for month in year|last %}
-      <li><a href="{% url news.views.archive month|date:"Y",month|date:"m" %}">{{ month|date:"F" }}</a></li>
+      <li><a href="{% url news.views.show month|date:"Y",month|date:"m" %}">{{ month|date:"F" }}</a></li>
       {% endfor %}
     </ul>
   </li>

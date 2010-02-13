@@ -5,7 +5,7 @@ from django.template import RequestContext
 from models import *
 from main.models import Content
 
-def main(request):
+def index(request):
     """
     Loads all screenshots from the latest version
     """
@@ -14,13 +14,12 @@ def main(request):
     sub_header = versions[0]
     screenshots = Screenshot.objects.filter(version=sub_header)
     include_fancybox = True
-    return render_to_response('screenshots/screenshots.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('screenshots/index.html', locals(), context_instance=RequestContext(request))
 
-def past_version(request, version):
+def show(request, version):
     content = Content.objects.get(name="screenshots")
     versions = Version.objects.order_by('release_date').reverse()
     sub_header = Version.objects.get(version=version)
     screenshots = Screenshot.objects.filter(version=sub_header)
     include_fancybox = True
-    return render_to_response('screenshots/screenshots.html', locals(), context_instance=RequestContext(request))
-    pass
+    return render_to_response('screenshots/index.html', locals(), context_instance=RequestContext(request))
