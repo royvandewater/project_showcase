@@ -6,13 +6,6 @@ from django.test import TestCase
 class SimpleTest(TestCase):
     fixtures = ['testdata']
 
-    def check_response_code(self, url, code):
-        """
-        Check the url to ensure it returns the proper response code
-        """
-        response = self.client.get(url)
-        self.failUnlessEqual(response.status_code, code)
-
     def test_model_version(self):
         ver = Version()
         ver.version = "0.2b"
