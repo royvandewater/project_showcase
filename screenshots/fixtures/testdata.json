@@ -3,8 +3,16 @@
     "pk": 1, 
     "model": "screenshots.version", 
     "fields": {
-      "release_date": "2010-02-04 15:25:03", 
+      "release_date": "2010-02-02 15:25:03", 
       "version": "0.3a"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "screenshots.version", 
+    "fields": {
+      "release_date": "2010-02-04 15:25:03", 
+      "version": "0.5b"
     }
   }, 
   {
@@ -21,7 +29,7 @@
     "pk": 2, 
     "model": "screenshots.screenshot", 
     "fields": {
-      "version": 1, 
+      "version": 2, 
       "thumbnail": "upload/screenshots/thumb/moonwalk2808dd4akz4.jpg", 
       "full": "upload/screenshots/full/moonwalk2808dd4akz4.jpg", 
       "title": "Queue"
