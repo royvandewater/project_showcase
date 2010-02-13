@@ -9,7 +9,7 @@ def main(request):
     """
     Loads all screenshots from the latest version
     """
-    content = Content.objects.get(name="screenshots")
+    content = Content.objects.get(name="Screenshots")
     versions = Version.objects.order_by('release_date').reverse()
     sub_header = versions[0]
     screenshots = Screenshot.objects.filter(version=sub_header)

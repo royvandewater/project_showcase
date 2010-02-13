@@ -51,10 +51,14 @@ class SimpleTest(TestCase):
         shot2 = Screenshot.objects.get(title="title")
         self.failUnlessEqual(str(shot2.version), "v0.2b")
 
-    def test_view_screenshots(self):
+    def test_view_main(self):
         """
         Tests that the screenshots view returns code 200
         """
-        self.check_response_code("/screenshots/", 200)
-        self.check_response_code("/screenshots/0.3a/", 200)
+        self.assertContains(self.client.get("/screenshots/"), "<h1>Screenshots</h1>", status_code=200)
 
+    def test_view_past_version(self):
+        """
+        Tests that the past_versions view returns code 200
+        """
+        self.check_response_code("/screenshots/0.3a/", 200)
