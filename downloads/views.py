@@ -12,6 +12,7 @@ def index(request):
     return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
 
 def show(request, release):
+    content = Content.objects.get(name='downloads')
     active_release = Release.objects.get(version=float(release))
     releases = Release.objects.order_by('release_date').reverse()
     sub_header = str(active_release)
