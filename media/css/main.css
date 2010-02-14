@@ -168,3 +168,30 @@ div.changelog {
 div.changelog h2, div.files h2 {
   font-size: 1.2em;
 }
+
+div.user_form {
+  margin: 50px 70px;
+}
+
+div.user_form ul.errorlist {
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  padding: 0 5px;
+  list-style: inside disc;
+}
+
+div.user_form label {
+  float: left;
+  margin-top: 3px;
+}
+
+div.user_form input {
+  float: right;
+}
+
+div.user_form p {
+  clear: both;
+  width: 460px;
+  height: 35px;
+}
+

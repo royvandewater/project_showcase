@@ -12,4 +12,6 @@ $(document).ready(function(){
         target_url = $(this).find("a").attr("href");
         window.location = target_url;
     });
+
+    $("div.user_form ul.errorlist").addClass("ui-widget-header");
 });

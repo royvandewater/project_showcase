@@ -6,5 +6,12 @@ from main.models import Content
 
 def new(request):
     content = Content.objects.get(name='register')
-    form = RegisterForm()
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            pass
+        else:
+            pass
+    else:
+        form = RegisterForm()
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
