@@ -1,0 +1,12 @@
+[
+    {
+        "pk": 6, 
+        "model": "main.content", 
+        "fields": {
+            "body": "Please register to contribute to this project's Wiki and Issue Tracker.", 
+            "header": "Register", 
+            "name": "register", 
+            "title": "Register"
+        }
+    }
+]
