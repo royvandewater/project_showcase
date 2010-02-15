@@ -29,6 +29,14 @@ body {
   background: none #eee;
 }
 
+#login_info span.logout {
+  float: left;
+}
+
+#login_info a.logout {
+  float: left;
+}
+
 #navigation {
   float: right;
   font-size: 12px;

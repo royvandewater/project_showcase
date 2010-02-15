@@ -5,4 +5,5 @@ urlpatterns = patterns('users.views',
     # Library files
     (r'new/$', 'new'),
     (r'login/$', 'login'),
+    (r'logout/$', 'destroy'),
 )

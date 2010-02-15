@@ -3,8 +3,11 @@
 {% block html_body %}
 <div id="wrapper" class="ui-widget">
   <div id="login_info" class="ui-widget-content">
-    {% if not logged_in %}
-    <a href="{% url users.views.login %}">login</a> or <a href="{% url users.views.new %}">register</a>
+    {% if request.user.username %}
+      <span class="logout">Logged in as: {{ request.user.username }} </span>
+      <a href="{% url users.views.destroy %}" class="logout">(logout)</a>
+    {% else %}
+      <a href="{% url users.views.login %}">login</a> or <a href="{% url users.views.new %}">register</a>
     {% endif %}
   </div>
   <div id="navigation" class="ui-widget-header ui-corner-top">

@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -45,3 +46,7 @@ def login(request):
     submit_action = reverse('users.views.login')
     form = LoginForm()
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
+
+def destroy(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('news.views.index'))
