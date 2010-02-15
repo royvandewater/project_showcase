@@ -25,4 +25,5 @@ def new(request):
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
 
 def login(request):
-    pass
+    content = Content.objects.get(name='login')
+    return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
