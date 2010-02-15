@@ -5,10 +5,12 @@
     {% if success_message %}
       {{ success_message|safe }}
     {% else %}
-      {% if error_message %}
-        {{ error_message|safe }}
-      {% endif %}
       <div class="user_form">
+        {% if error_message %}
+        <ul class="errorlist">
+          <li>{{ error_message|safe }}</li>
+        </ul>
+        {% endif %}
         <form action="{{ submit_action }}" method="post" >
           {% csrf_token %}
           {{ form.as_p }}
