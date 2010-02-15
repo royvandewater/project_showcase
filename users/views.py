@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.models import User
+from django.contrib import auth
 from django.core.urlresolvers import reverse
 
 from forms import *
@@ -8,6 +9,8 @@ from main.models import Content
 
 def new(request):
     content = Content.objects.get(name='register')
+    submit_value = "Register"
+    submit_action = reverse('users.views.new')
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -26,4 +29,19 @@ def new(request):
 
 def login(request):
     content = Content.objects.get(name='login')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = auth.authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            if user is not None:
+                if user.is_active:
+                    auth.login(request, user)
+                    success_message = "You are now logged in"
+                else:
+                    error_message = "Account has been disabled"
+            else:
+                error_message = "Username/password combination not found"
+    submit_value = "Login"
+    submit_action = reverse('users.views.login')
+    form = LoginForm()
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))

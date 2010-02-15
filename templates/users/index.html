@@ -5,12 +5,15 @@
     {% if success_message %}
       {{ success_message|safe }}
     {% else %}
+      {% if error_message %}
+        {{ error_message|safe }}
+      {% endif %}
       <div class="user_form">
-        <form action="{% url users.views.new %}" method="post" >
+        <form action="{{ submit_action }}" method="post" >
           {% csrf_token %}
           {{ form.as_p }}
           <p>
-            <input type="submit" value="Register" />
+            <input type="submit" value="{{ submit_value }}" />
           </p>
         </form>
       </div>

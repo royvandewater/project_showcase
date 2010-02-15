@@ -35,3 +35,7 @@ class RegisterForm(forms.Form):
             if password != confirm_password:
                 raise forms.ValidationError("Passwords do not match")
         return confirm_password
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=255, required=True, label="Username")
+    password = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput, label="Password")
