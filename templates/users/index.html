@@ -2,14 +2,18 @@
 
 {% block main_content %}
   <div class="narrow_content">
-    <div class="user_form">
-      <form action="{% url users.views.new %}" method="post" >
-        {% csrf_token %}
-        {{ form.as_p }}
-        <p>
-          <input type="submit" value="Register" />
-        </p>
-      </form>
-    </div>
+    {% if success_message %}
+      {{ success_message|safe }}
+    {% else %}
+      <div class="user_form">
+        <form action="{% url users.views.new %}" method="post" >
+          {% csrf_token %}
+          {{ form.as_p }}
+          <p>
+            <input type="submit" value="Register" />
+          </p>
+        </form>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
