@@ -51,6 +51,9 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
+# Profile to use (custom info needed)
+ADMIN_PROFILE_MODULE = 'users.ProjectUser'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '!io1w-%2tl17xy2fn40u+hojqpf_j)rm6a)y$m_n_5=v*rx8w!'
 
