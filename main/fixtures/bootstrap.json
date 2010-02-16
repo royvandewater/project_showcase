@@ -58,5 +58,15 @@
             "name": "register", 
             "title": "Register"
         }
+    },
+    {
+        "pk": 7, 
+        "model": "main.content", 
+        "fields": {
+            "body": "Please login to contribute to this site's Wiki and Issue Tracker", 
+            "header": "Login", 
+            "name": "login", 
+            "title": "Login"
+        }
     }
 ]

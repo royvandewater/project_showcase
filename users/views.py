@@ -4,9 +4,12 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 
 from forms import *
 from main.models import Content
+from models import *
 
 def new(request):
     content = Content.objects.get(name='register')
@@ -22,6 +25,11 @@ def new(request):
             user.email = form.cleaned_data["email"]
             user.set_password(form.cleaned_data["password"])
             user.save()
+
+            project_user = ProjectUser()
+            project_user.user = user
+            project_user.save()
+
             content.body = ""
             success_message = 'Thank you for registering. Please <a href="{0}">login</a> to get started'.format(reverse('users.views.login'))
     else:
@@ -61,11 +69,14 @@ def reset(request):
     submit_action = reverse('users.views.reset')
 
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = ResetForm(request.POST)
         if form.is_valid():
-            user = User.objects.get(email=form.cleaned_data['email'])
-            content.title = "Forgot Password"
-            content.header = "Forgot Password"
+            users = ProjectUser.objects.filter(email=form.cleaned_data['email'])
+            for user in users:
+                # TODO: Generate reset link
+                 
+                send_mail("Partybeat password reset", "Click this link to reset your password", "support@partybeat.net", [user.email], fail_silently=False)
+                # send_mail('Subject here', 'Here is the message.', 'from@example.com',['to@example.com'], fail_silently=False)
             content.body = "An email with the reset link has been sent"
     else:
         form = ResetForm()

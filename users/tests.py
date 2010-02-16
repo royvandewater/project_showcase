@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.core import mail
 
 class UserTests(TestCase):
     fixtures = ['testdata']
@@ -26,6 +27,9 @@ class UserTests(TestCase):
           'confirm_password':'pass',
           }
       self.assertFormError(self.post_view("new", post_data), 'form', 'password', "Password must be at least 6 characters")
+      # Try to submit with no passwords
+      post_data['password'] = post_data['confirm_password'] = ""
+      self.assertFormError(self.post_view("new", post_data), 'form', 'password', "This field is required.")
       # Try to submit with non-matching passwords
       post_data['password'] = "test_password"
       post_data['confirm_password'] = "test_password1"
@@ -66,6 +70,11 @@ class UserTests(TestCase):
       """
       self.assertContains(self.get_view('reset'), "Enter your email address and you will receive", status_code=200)
       self.assertContains(self.get_view('reset'), "Email address:", status_code=200)
+      # Test email required
+      post_data = {
+              'email':'',
+              }
+      self.assertFormError(self.post_view("new", post_data), 'form', 'password', "This field is required.")
       post_data = {
               'email':'test@fail.com',
               }
@@ -74,3 +83,6 @@ class UserTests(TestCase):
               'email':'test@partybeat.net',
               }
       self.assertContains(self.post_view('reset', post_data), "An email with the reset link has been sent", status_code=200)
+      # Check to see if the email was actually sent
+      self.assertEqual(len(mail.outbox), 1)
+
