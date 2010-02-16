@@ -30,6 +30,8 @@ def new(request):
 
 def login(request):
     content = Content.objects.get(name='login')
+    submit_value = "Login"
+    submit_action = reverse('users.views.login')
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -42,11 +44,29 @@ def login(request):
                     error_message = "Account has been disabled"
             else:
                 error_message = "Username/password combination not found"
-    submit_value = "Login"
-    submit_action = reverse('users.views.login')
-    form = LoginForm()
+    else:
+        form = LoginForm()
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
 
 def destroy(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('news.views.index'))
+
+def reset(request):
+    content = Content()
+    content.title = "Forgot Password"
+    content.header = "Forgot Password"
+    content.body = "Enter your email address and you will receive an email with a link to reset your password"
+    submit_value = "Submit"
+    submit_action = reverse('users.views.reset')
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = User.objects.get(email=form.cleaned_data['email'])
+            content.title = "Forgot Password"
+            content.header = "Forgot Password"
+            content.body = "An email with the reset link has been sent"
+    else:
+        form = ResetForm()
+    return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))

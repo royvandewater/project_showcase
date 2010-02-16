@@ -39,3 +39,12 @@ class RegisterForm(forms.Form):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, required=True, label="Username")
     password = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput, label="Password")
+
+class ResetForm(forms.Form):
+    email = forms.EmailField(required=True, label="Email address")
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email).count() > 0:
+            return email
+        raise forms.ValidationError("There does not exist an account with that email address")
