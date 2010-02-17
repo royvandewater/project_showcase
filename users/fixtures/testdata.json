@@ -20,7 +20,7 @@
         }
     }, 
     {
-        "pk": 2, 
+        "pk": 4, 
         "model": "auth.user", 
         "fields": {
             "username": "test", 
@@ -29,16 +29,16 @@
             "is_active": 1, 
             "is_superuser": 0, 
             "is_staff": 0, 
-            "last_login": "2010-02-14 16:53:07", 
+            "last_login": "2010-02-16 15:23:41", 
             "groups": [], 
             "user_permissions": [], 
-            "password": "sha1$d32b5$f70df8ed5a8f7594e2e96e33e11992b3fe0a118b", 
+            "password": "sha1$09daa$ce7ca51771030ad3d71951fddb132e2894460f1f", 
             "email": "test@partybeat.net", 
-            "date_joined": "2010-02-14 16:53:07"
+            "date_joined": "2010-02-16 15:23:41"
         }
-    },
+    }, 
     {
-        "pk": 3, 
+        "pk": 5, 
         "model": "auth.user", 
         "fields": {
             "username": "disabled", 
@@ -47,12 +47,46 @@
             "is_active": 0, 
             "is_superuser": 0, 
             "is_staff": 0, 
-            "last_login": "2010-02-14 16:53:07", 
+            "last_login": "2010-02-16 15:24:14", 
             "groups": [], 
             "user_permissions": [], 
-            "password": "sha1$d32b5$f70df8ed5a8f7594e2e96e33e11992b3fe0a118b", 
+            "password": "sha1$e196f$65ab2e2f3ca2e8344a5dd6c1b693de105e11a1d5", 
             "email": "test@disabled.net", 
-            "date_joined": "2010-02-14 16:53:07"
+            "date_joined": "2010-02-16 15:24:14"
+        }
+    },
+    {
+        "pk": 6, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test_2", 
+            "first_name": "first", 
+            "last_name": "last", 
+            "is_active": 0, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-02-16 15:24:14", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$e196f$65ab2e2f3ca2e8344a5dd6c1b693de105e11a1d5", 
+            "email": "test@partybeat.net", 
+            "date_joined": "2010-02-16 15:24:14"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 4, 
+            "reset_string": null
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 5, 
+            "reset_string": null
         }
     }
 ]

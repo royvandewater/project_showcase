@@ -3,9 +3,13 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+
+import hashlib
+import random
 
 from forms import *
 from main.models import Content
@@ -60,7 +64,7 @@ def destroy(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('news.views.index'))
 
-def reset(request):
+def reset(request, email=None, reset_string=None):
     content = Content()
     content.title = "Forgot Password"
     content.header = "Forgot Password"
@@ -68,15 +72,33 @@ def reset(request):
     submit_value = "Submit"
     submit_action = reverse('users.views.reset')
 
-    if request.method == 'POST':
+    if email and reset_string:
+        user = User.objects.filter(email=email)
+        if user:
+            user = ProjectUser.objects.get(user=user[0])
+        if user and user.reset_string == reset_string:
+            pass
+        else:
+            error_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
+            pass
+    elif request.method == 'POST':
         form = ResetForm(request.POST)
         if form.is_valid():
-            users = ProjectUser.objects.filter(email=form.cleaned_data['email'])
-            for user in users:
-                # TODO: Generate reset link
-                 
-                send_mail("Partybeat password reset", "Click this link to reset your password", "support@partybeat.net", [user.email], fail_silently=False)
-                # send_mail('Subject here', 'Here is the message.', 'from@example.com',['to@example.com'], fail_silently=False)
+            user = User.objects.filter(email=form.cleaned_data['email'])
+            if user > 0:
+                user = ProjectUser.objects.get(user=user[0])
+
+                user.reset_string = hashlib.md5(str(random.random())).hexdigest()
+                user.save()
+
+                current_site = Site.objects.get_current()
+                email_message = """ 
+                    Click this link to reset your password,
+                    http://{0}{1}
+                    """.format(current_site.domain, reverse("users.views.reset", kwargs={'email':user.user.email, 'reset_string':user.reset_string}))
+
+            send_mail("Partybeat password reset", email_message, "support@partybeat.net", [user.user.email], fail_silently=False)
+
             content.body = "An email with the reset link has been sent"
     else:
         form = ResetForm()

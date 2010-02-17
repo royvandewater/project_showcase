@@ -6,5 +6,6 @@ urlpatterns = patterns('users.views',
     (r'new/$', 'new'),
     (r'login/$', 'login'),
     (r'logout/$', 'destroy'),
+    (r'reset/email/(?P<email>[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/key/(?P<reset_string>\w+)/$', 'reset'),
     (r'reset/$', 'reset'),
 )

@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.core import mail
 
+import re
+
 class UserTests(TestCase):
     fixtures = ['testdata']
 
@@ -85,4 +87,10 @@ class UserTests(TestCase):
       self.assertContains(self.post_view('reset', post_data), "An email with the reset link has been sent", status_code=200)
       # Check to see if the email was actually sent
       self.assertEqual(len(mail.outbox), 1)
-
+      # Try a random url that we know will fail
+      url = reverse('users.views.reset', kwargs={'email':'test@partybeat.com', 'reset_string':'qzt'})
+          # reverse("users.views.reset", kwargs={'email':user.user.email,      'reset_string':user.reset_string}))
+      self.assertContains(self.client.get(url), "The email address or reset key is incorrect.", status_code=200)
+      # Get the reset string from mail
+      url = re.search("http:\/\/example\.com(?P<address>.*)", mail.outbox[0].body).group('address')
+      self.assertContains(self.client.get(url), "Please enter a new password")
