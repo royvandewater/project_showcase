@@ -5,7 +5,7 @@ class Content(models.Model):
     name = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     header = models.CharField(max_length=255)
-    body = models.TextField(null=True,blank=True)
+    body = models.TextField(null=True,blank=True,help_text="You can enter html here")
 
     def __unicode__(self):
         return self.name

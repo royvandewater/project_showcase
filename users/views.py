@@ -42,6 +42,7 @@ def new(request):
 
 def login(request):
     content = Content.objects.get(name='login')
+    content.body += '<br><a href="{0}" class="forgot_password_link">forgot password?</a>'.format(reverse('users.views.reset'))
     submit_value = "Login"
     submit_action = reverse('users.views.login')
     if request.method == 'POST':
@@ -77,10 +78,11 @@ def reset(request, email=None, reset_string=None):
         if user:
             user = ProjectUser.objects.get(user=user[0])
         if user and user.reset_string == reset_string:
-            pass
+            content.body = "Please enter a new password"
+            default_data = {'reset_string':reset_string, 'password':'password', 'confirm_password':'gobeldyg'}
+            form = ResetPasswordForm(default_data)
         else:
             error_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
-            pass
     elif request.method == 'POST':
         form = ResetForm(request.POST)
         if form.is_valid():
@@ -96,7 +98,6 @@ def reset(request, email=None, reset_string=None):
                     Click this link to reset your password,
                     http://{0}{1}
                     """.format(current_site.domain, reverse("users.views.reset", kwargs={'email':user.user.email, 'reset_string':user.reset_string}))
-
             send_mail("Partybeat password reset", email_message, "support@partybeat.net", [user.user.email], fail_silently=False)
 
             content.body = "An email with the reset link has been sent"

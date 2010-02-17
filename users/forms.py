@@ -48,3 +48,8 @@ class ResetForm(forms.Form):
         if User.objects.filter(email=email).count() > 0:
             return email
         raise forms.ValidationError("There does not exist an account with that email address")
+
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput, label="Password")
+    confirm_password = forms.CharField(max_length=255, required=True, widget=forms.PasswordInput, label="Confirm Password")
+    reset_string = forms.CharField(max_length=255, required=True, widget=forms.HiddenInput())

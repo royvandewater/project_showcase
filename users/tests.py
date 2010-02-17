@@ -89,7 +89,6 @@ class UserTests(TestCase):
       self.assertEqual(len(mail.outbox), 1)
       # Try a random url that we know will fail
       url = reverse('users.views.reset', kwargs={'email':'test@partybeat.com', 'reset_string':'qzt'})
-          # reverse("users.views.reset", kwargs={'email':user.user.email,      'reset_string':user.reset_string}))
       self.assertContains(self.client.get(url), "The email address or reset key is incorrect.", status_code=200)
       # Get the reset string from mail
       url = re.search("http:\/\/example\.com(?P<address>.*)", mail.outbox[0].body).group('address')
