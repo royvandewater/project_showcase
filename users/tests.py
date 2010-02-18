@@ -9,10 +9,10 @@ class UserTests(TestCase):
     reset_url = None
 
     def get_view(self, url):
-      return self.client.get(reverse("users.views.{0}".format(url)))
+      return self.client.get(reverse("users.views." + url))
 
     def post_view(self, url, post_data):
-      return self.client.post(reverse("users.views.{0}".format(url)), post_data)
+      return self.client.post(reverse("users.views." + url), post_data)
 
     def test_view_new(self):
       """
