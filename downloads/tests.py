@@ -17,6 +17,7 @@ class DownloadsTest(TestCase):
         rel.release_date = datetime.datetime(2010, 1, 1)
         rel.change_log = "Fixed some stuff"
         rel.file.name = "this/test"
+        rel.display_name = None
         rel.save()
         rel2 = Release.objects.get(version="0.3b")
         self.failUnlessEqual(rel2.version, "0.3b")
@@ -28,6 +29,10 @@ class DownloadsTest(TestCase):
         rel3.version = "0.3b"
         rel3.release_date = datetime.datetime.now()
         self.failUnlessRaises(django.db.IntegrityError, rel3.save)
+        rel.display_name = "Test display name"
+        rel.save()
+        rel2 = Release.objects.get(version="0.3b")
+        self.failUnlessEqual(rel2.filename(), "Test display name")
 
     def test_view_main(self):
         """
