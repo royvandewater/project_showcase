@@ -180,6 +180,10 @@ div.changelog h2, div.files h2 {
   margin-bottom: 10px;
 }
 
+div.changelog ul {
+  margin-left: 20px;
+}
+
 div.user_form {
   margin: 50px 70px;
 }
