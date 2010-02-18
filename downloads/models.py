@@ -17,7 +17,7 @@ class Release(models.Model):
         if self.display_name:
             return self.display_name
         else:
-            return self.file.url.split("/")[-1]
+            return self.download_name()
 
     def download_name(self):
         filename = self.file.url.split("/")[-1]
