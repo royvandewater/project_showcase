@@ -8,7 +8,7 @@
   </div>
   <div class="files">
     <h2>Files</h2>
-    <a href="{{ downloads.views.download active_release.pk }}">{{ active_release.filename }}</a>
+    <a href="{% url downloads.views.download active_release.pk %}">{{ active_release.filename }}</a>
   </div>
 </div>
 {% endblock %}

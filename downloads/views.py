@@ -22,4 +22,5 @@ def show(request, release):
 def download(request, file_id):
     release_file = Release.objects.get(pk=file_id)
     response = HttpResponse(content=release_file.file.chunks(), mimetype="application/octet-stream")
-    response['Content-Disposition'] = "attachment; filename=%s" % (get_filename(release_file.download_name))
+    response['Content-Disposition'] = "attachment; filename=%s" % (release_file.download_name())
+    return response
