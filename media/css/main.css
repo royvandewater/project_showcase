@@ -40,7 +40,7 @@ body {
 #navigation {
   float: right;
   font-size: 12px;
-  margin-right: 160px;
+  margin-right: 156px;
 }
 
 #navigation ul {
@@ -108,6 +108,8 @@ body {
   float: left;
   min-height: 300px;
   width: 155px;
+  position: relative;
+  bottom: 1px;
 }
 
 #side-navigation-content {

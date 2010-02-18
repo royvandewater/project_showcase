@@ -6,6 +6,7 @@ import re
 
 class UserTests(TestCase):
     fixtures = ['testdata']
+    reset_url = None
 
     def get_view(self, url):
       return self.client.get(reverse("users.views.{0}".format(url)))
@@ -70,26 +71,26 @@ class UserTests(TestCase):
       """
       Tests the password reset view
       """
-      self.assertContains(self.get_view('reset'), "Enter your email address and you will receive", status_code=200)
-      self.assertContains(self.get_view('reset'), "Email address:", status_code=200)
+      self.assertContains(self.get_view('forgot'), "Enter your email address and you will receive", status_code=200)
+      self.assertContains(self.get_view('forgot'), "Email address:", status_code=200)
       # Test email required
       post_data = {
               'email':'',
               }
-      self.assertFormError(self.post_view("new", post_data), 'form', 'password', "This field is required.")
+      self.assertFormError(self.post_view("forgot", post_data), 'form', 'email', "This field is required.")
       post_data = {
               'email':'test@fail.com',
               }
-      self.assertContains(self.post_view('reset', post_data), "There does not exist an account with that email address", status_code=200)
+      self.assertContains(self.post_view('forgot', post_data), "There does not exist an account with that email address", status_code=200)
       post_data = {
               'email':'test@partybeat.net',
               }
-      self.assertContains(self.post_view('reset', post_data), "An email with the reset link has been sent", status_code=200)
+      self.assertContains(self.post_view('forgot', post_data), "An email with the reset link has been sent", status_code=200)
       # Check to see if the email was actually sent
       self.assertEqual(len(mail.outbox), 1)
+      reset_url = re.search("http:\/\/example\.com(?P<address>.*)", mail.outbox[0].body).group('address')
       # Try a random url that we know will fail
       url = reverse('users.views.reset', kwargs={'email':'test@partybeat.com', 'reset_string':'qzt'})
       self.assertContains(self.client.get(url), "The email address or reset key is incorrect.", status_code=200)
       # Get the reset string from mail
-      url = re.search("http:\/\/example\.com(?P<address>.*)", mail.outbox[0].body).group('address')
-      self.assertContains(self.client.get(url), "Please enter a new password")
+      self.assertContains(self.client.get(reset_url), "Please enter a new password")

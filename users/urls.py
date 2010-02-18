@@ -3,6 +3,7 @@ from django.views.generic.list_detail import object_detail
 
 urlpatterns = patterns('users.views',
     # Library files
+    (r'forgot/$', 'forgot'),
     (r'new/$', 'new'),
     (r'login/$', 'login'),
     (r'logout/$', 'destroy'),

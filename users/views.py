@@ -42,7 +42,7 @@ def new(request):
 
 def login(request):
     content = Content.objects.get(name='login')
-    content.body += '<br><a href="{0}" class="forgot_password_link">forgot password?</a>'.format(reverse('users.views.reset'))
+    content.body += '<br><a href="{0}" class="forgot_password_link">forgot password?</a>'.format(reverse('users.views.forgot'))
     submit_value = "Login"
     submit_action = reverse('users.views.login')
     if request.method == 'POST':
@@ -65,25 +65,15 @@ def destroy(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('news.views.index'))
 
-def reset(request, email=None, reset_string=None):
+def forgot(request):
     content = Content()
     content.title = "Forgot Password"
     content.header = "Forgot Password"
     content.body = "Enter your email address and you will receive an email with a link to reset your password"
     submit_value = "Submit"
-    submit_action = reverse('users.views.reset')
+    submit_action = reverse('users.views.forgot')
 
-    if email and reset_string:
-        user = User.objects.filter(email=email)
-        if user:
-            user = ProjectUser.objects.get(user=user[0])
-        if user and user.reset_string == reset_string:
-            content.body = "Please enter a new password"
-            default_data = {'reset_string':reset_string, 'password':'password', 'confirm_password':'gobeldyg'}
-            form = ResetPasswordForm(default_data)
-        else:
-            error_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
-    elif request.method == 'POST':
+    if request.method == 'POST':
         form = ResetForm(request.POST)
         if form.is_valid():
             user = User.objects.filter(email=form.cleaned_data['email'])
@@ -103,4 +93,22 @@ def reset(request, email=None, reset_string=None):
             content.body = "An email with the reset link has been sent"
     else:
         form = ResetForm()
+
+    return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
+
+def reset(request, email=None, reset_string=None):
+    content = Content()
+    content.title = "Password Reset"
+    content.header = "Password Reset"
+
+    if email and reset_string:
+        user = User.objects.filter(email=email)
+        if user:
+            user = ProjectUser.objects.get(user=user[0])
+        if user and user.reset_string == reset_string:
+            content.body = "Please enter a new password"
+            default_data = {'reset_string':reset_string, 'password':'password', 'confirm_password':'gobeldyg'}
+            form = ResetPasswordForm(default_data)
+        else:
+            error_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
