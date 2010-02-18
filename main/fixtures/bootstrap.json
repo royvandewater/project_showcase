@@ -1,5 +1,401 @@
 [
     {
+        "pk": 11, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "article", 
+            "name": "article", 
+            "app_label": "news"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "content", 
+            "name": "content", 
+            "app_label": "main"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "contenttype", 
+            "name": "content type", 
+            "app_label": "contenttypes"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "group", 
+            "name": "group", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "logentry", 
+            "name": "log entry", 
+            "app_label": "admin"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "message", 
+            "name": "message", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "permission", 
+            "name": "permission", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "projectuser", 
+            "name": "project user", 
+            "app_label": "users"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "release", 
+            "name": "release", 
+            "app_label": "downloads"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "screenshot", 
+            "name": "screenshot", 
+            "app_label": "screenshots"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "sessions"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "site", 
+            "name": "site", 
+            "app_label": "sites"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "tag", 
+            "name": "tag", 
+            "app_label": "news"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "version", 
+            "name": "version", 
+            "app_label": "screenshots"
+        }
+    }, 
+    {
+        "pk": "11cb9cc5e4361114ec99c898f9218dd5", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2010-03-03 21:49:22", 
+            "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS5iYzJlMDRhOTE5MGZiNWQzMGFi\nYzM0NjJjNDlmYWY4Zg==\n"
+        }
+    }, 
+    {
+        "pk": "ef6cfa76222d3fce094826eaaaa0a637", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2010-03-02 17:34:42", 
+            "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS5iYzJlMDRhOTE5MGZiNWQzMGFi\nYzM0NjJjNDlmYWY4Zg==\n"
+        }
+    }, 
+    {
+        "pk": "07b72b81df22338483bfa4e1a9504ac6", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2010-03-02 15:42:16", 
+            "session_data": "gAJ9cQEuODVhNmMyOWJlOGRmYmEyNTIwNzBmMTlkOTUyYzZmYzQ=\n"
+        }
+    }, 
+    {
+        "pk": "61cd2140cff00c27cd66e66eaa64d2e9", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2010-03-03 22:36:09", 
+            "session_data": "gAJ9cQEuODVhNmMyOWJlOGRmYmEyNTIwNzBmMTlkOTUyYzZmYzQ=\n"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "localhost:8000", 
+            "name": "localhost:8000"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:22:15", 
+            "object_repr": "v0.5", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-02-17 22:19:28", 
+            "object_repr": "downloads", 
+            "object_id": "5", 
+            "change_message": "Changed body.", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:11:34", 
+            "object_repr": "Drinking in front of the dog", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:11:13", 
+            "object_repr": "The Moonwalk", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:10:55", 
+            "object_repr": "v0.5b", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:07:24", 
+            "object_repr": "First Article", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-17 22:07:22", 
+            "object_repr": "test", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 3, 
+            "action_time": "2010-02-17 16:10:19", 
+            "object_repr": "mf", 
+            "object_id": "8", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-02-16 17:35:22", 
+            "object_repr": "localhost:8000", 
+            "object_id": "1", 
+            "change_message": "Changed domain and name.", 
+            "user": 1, 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-02-16 17:34:55", 
+            "object_repr": "localhost", 
+            "object_id": "1", 
+            "change_message": "Changed domain and name.", 
+            "user": 1, 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 3, 
+            "action_time": "2010-02-16 15:30:26", 
+            "object_repr": "duplicate_email", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-02-16 15:28:09", 
+            "object_repr": "duplicate_email", 
+            "object_id": "6", 
+            "change_message": "Changed email.", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-02-16 15:28:02", 
+            "object_repr": "duplicate_email", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-02-16 15:24:27", 
+            "object_repr": "disabled", 
+            "object_id": "5", 
+            "change_message": "Changed is_active.", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 3, 
+            "action_time": "2010-02-16 15:23:39", 
+            "object_repr": "test", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 3, 
+            "action_time": "2010-02-16 15:22:47", 
+            "object_repr": "test (first last)", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 3, 
+            "action_time": "2010-02-16 13:05:28", 
+            "object_repr": "test", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "main.content", 
         "fields": {
@@ -43,7 +439,7 @@
         "pk": 5, 
         "model": "main.content", 
         "fields": {
-            "body": "", 
+            "body": "The latest version of partybeat can always be found on <a href=\"http://github.com/royvandewater/partybeat\">github.com</a>. Use <a href=\"http://git-scm.com/\">git</a> to clone the following url:\r\n\r\n<div class=\"ui-corner-all git-link\">git clone git://github.com/royvandewater/partybeat.git</div>", 
             "header": "Downloads", 
             "name": "downloads", 
             "title": "Downloads"
@@ -58,7 +454,7 @@
             "name": "register", 
             "title": "Register"
         }
-    },
+    }, 
     {
         "pk": 7, 
         "model": "main.content", 
@@ -67,6 +463,570 @@
             "header": "Login", 
             "name": "login", 
             "title": "Login"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "news.tag", 
+        "fields": {
+            "name": "test"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "news.article", 
+        "fields": {
+            "body": "Aliquam erat volutpat. Donec id lectus vel lectus venenatis scelerisque vitae ornare nisi. Donec interdum nibh non orci fringilla congue. Cras augue lectus, bibendum ut pulvinar tincidunt, convallis ac turpis. Maecenas pharetra sagittis tellus at tempus. Quisque semper eleifend tellus nec porta. Praesent aliquam aliquam dui fermentum placerat. Pellentesque sit amet nunc diam, vitae pulvinar turpis. Quisque tristique sollicitudin mi sit amet faucibus. Vivamus posuere rutrum adipiscing. Quisque nisl purus, suscipit vitae faucibus in, elementum eget velit. Cras nec dolor libero, vel pellentesque libero. Nulla pretium elementum libero sed bibendum. Curabitur quis velit at leo consectetur tristique et ultricies urna. Mauris dapibus ante at dui viverra elementum. Phasellus convallis tristique feugiat.", 
+            "tags": [
+                1
+            ], 
+            "publish_date": "2010-02-17 22:07:15", 
+            "title": "First Article"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "screenshots.version", 
+        "fields": {
+            "release_date": "2010-02-17 22:10:54", 
+            "version": "0.5b"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "downloads.release", 
+        "fields": {
+            "change_log": "* First public release", 
+            "release_date": "2010-02-17 22:20:07", 
+            "version": "0.5", 
+            "file": "upload/releases/partybeat.tar_.gz"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 4, 
+            "reset_string": null
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 5, 
+            "reset_string": null
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 7, 
+            "reset_string": "7c5c793625397d36be077a5d109ef334"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "users.projectuser", 
+        "fields": {
+            "user": 9, 
+            "reset_string": null
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_logentry", 
+            "name": "Can add log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_logentry", 
+            "name": "Can change log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_logentry", 
+            "name": "Can delete log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_group", 
+            "name": "Can add group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_group", 
+            "name": "Can change group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_group", 
+            "name": "Can delete group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_message", 
+            "name": "Can add message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_message", 
+            "name": "Can change message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_message", 
+            "name": "Can delete message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_permission", 
+            "name": "Can add permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_permission", 
+            "name": "Can change permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_permission", 
+            "name": "Can delete permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_user", 
+            "name": "Can add user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_user", 
+            "name": "Can change user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_user", 
+            "name": "Can delete user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_contenttype", 
+            "name": "Can add content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_contenttype", 
+            "name": "Can change content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_contenttype", 
+            "name": "Can delete content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_release", 
+            "name": "Can add release", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_release", 
+            "name": "Can change release", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_release", 
+            "name": "Can delete release", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_content", 
+            "name": "Can add content", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_content", 
+            "name": "Can change content", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_content", 
+            "name": "Can delete content", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_article", 
+            "name": "Can add article", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_article", 
+            "name": "Can change article", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_article", 
+            "name": "Can delete article", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_tag", 
+            "name": "Can add tag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_tag", 
+            "name": "Can change tag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_tag", 
+            "name": "Can delete tag", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_screenshot", 
+            "name": "Can add screenshot", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_screenshot", 
+            "name": "Can change screenshot", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_screenshot", 
+            "name": "Can delete screenshot", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_version", 
+            "name": "Can add version", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_version", 
+            "name": "Can change version", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_version", 
+            "name": "Can delete version", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_session", 
+            "name": "Can add session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_session", 
+            "name": "Can change session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_session", 
+            "name": "Can delete session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_site", 
+            "name": "Can add site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_site", 
+            "name": "Can change site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_site", 
+            "name": "Can delete site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_projectuser", 
+            "name": "Can add project user", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_projectuser", 
+            "name": "Can change project user", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_projectuser", 
+            "name": "Can delete project user", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "doppler", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": 1, 
+            "is_superuser": 1, 
+            "is_staff": 1, 
+            "last_login": "2010-02-17 22:36:00", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$dece6$a95aef44e9ad1cc4cea55c546f6e3144b1fe43e1", 
+            "email": "me@royvandewater.com", 
+            "date_joined": "2010-02-16 12:58:43"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test", 
+            "first_name": "first", 
+            "last_name": "last", 
+            "is_active": 1, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-02-16 15:23:41", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$09daa$ce7ca51771030ad3d71951fddb132e2894460f1f", 
+            "email": "test@partybeat.net", 
+            "date_joined": "2010-02-16 15:23:41"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "disabled", 
+            "first_name": "first", 
+            "last_name": "last", 
+            "is_active": 0, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-02-16 15:24:14", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$e196f$65ab2e2f3ca2e8344a5dd6c1b693de105e11a1d5", 
+            "email": "test@disabled.net", 
+            "date_joined": "2010-02-16 15:24:14"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "roy", 
+            "first_name": "Roy", 
+            "last_name": "van de Water", 
+            "is_active": 1, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-02-16 16:01:14", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$804a8$a4b65e64d923b1679cdce1467f6f27149e4f1f8d", 
+            "email": "royv@asu.edu", 
+            "date_joined": "2010-02-16 16:01:14"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "mf", 
+            "first_name": "Morgan", 
+            "last_name": "Freeman", 
+            "is_active": 1, 
+            "is_superuser": 0, 
+            "is_staff": 0, 
+            "last_login": "2010-02-17 16:10:37", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$40f28$c5ad6e8d578c63c117bda055f94ac1d8d408eabc", 
+            "email": "test@royvandewater.com", 
+            "date_joined": "2010-02-17 16:10:37"
         }
     }
 ]
