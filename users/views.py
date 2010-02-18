@@ -35,14 +35,14 @@ def new(request):
             project_user.save()
 
             content.body = ""
-            success_message = 'Thank you for registering. Please <a href="{0}">login</a> to get started'.format(reverse('users.views.login'))
+            success_message = 'Thank you for registering. Please <a href="' + reverse('users.views.login') + '">login</a> to get started'
     else:
         form = RegisterForm()
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
 
 def login(request):
     content = Content.objects.get(name='login')
-    content.body += '<br><a href="{0}" class="forgot_password_link">forgot password?</a>'.format(reverse('users.views.forgot'))
+    content.body += '<br><a href="' + reverse('users.views.forgot') + '" class="forgot_password_link">forgot password?</a>'
     submit_value = "Login"
     submit_action = reverse('users.views.login')
     if request.method == 'POST':
@@ -86,8 +86,8 @@ def forgot(request):
                 current_site = Site.objects.get_current()
                 email_message = """ 
                     Click this link to reset your password,
-                    http://{0}{1}
-                    """.format(current_site.domain, reverse("users.views.reset", kwargs={'email':user.user.email, 'reset_string':user.reset_string}))
+                    http://""" + current_site.domain + reverse("users.views.reset", kwargs={'email':user.user.email, 'reset_string':user.reset_string})
+                    
             send_mail("Partybeat password reset", email_message, "support@partybeat.net", [user.user.email], fail_silently=False)
 
             content.body = "An email with the reset link has been sent"
