@@ -7,7 +7,7 @@ class SimpleTest(TestCase):
     fixtures = ['testdata']
 
     def url(self, url):
-        return self.client.get("/screenshots{0}".format(url))
+        return self.client.get("/screenshots%s" % (url))
 
     def test_model_version(self):
         ver = Version()

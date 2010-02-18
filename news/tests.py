@@ -15,7 +15,7 @@ class SimpleTest(TestCase):
     fixtures = ['testdata']
 
     def url(self, url):
-        return self.client.get("/news{0}".format(url))
+        return self.client.get("/news%s" % (url))
 
     # models
 

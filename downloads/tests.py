@@ -9,7 +9,7 @@ class DownloadsTest(TestCase):
     fixtures = ['testdata']
 
     def url(self, url):
-        return self.client.get("/downloads{0}".format(url))
+        return self.client.get("/downloads%s" % (url))
 
     def test_model_release(self):
         rel = Release()

@@ -7,4 +7,4 @@ class ProjectUser(models.Model):
     reset_string = models.CharField(max_length=32,null=True,blank=True)
 
     def __unicode__(self):
-        return "{0} ({1})".format(self.user.username, self.user.get_full_name())
+        return "%s (%s)" % (self.user.username, self.user.get_full_name())

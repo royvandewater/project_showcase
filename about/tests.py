@@ -11,7 +11,7 @@ class SimpleTest(TestCase):
     fixtures = ['testdata']
 
     def url(self, url):
-        return self.client.get("/about{0}".format(url))
+        return self.client.get("/about%s" % (url))
 
 
     def test_about_page(self):
