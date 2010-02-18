@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 
-import hashlib
+import sha
 import random
 
 from forms import *
@@ -80,7 +80,7 @@ def forgot(request):
             if user > 0:
                 user = ProjectUser.objects.get(user=user[0])
 
-                user.reset_string = hashlib.md5(str(random.random())).hexdigest()
+                user.reset_string = sha.sha(str(random.random())).hexdigest()
                 user.save()
 
                 current_site = Site.objects.get_current()
