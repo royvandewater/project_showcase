@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -17,3 +18,8 @@ def show(request, release):
     releases = Release.objects.order_by('release_date').reverse()
     sub_header = str(active_release)
     return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
+
+def download(request, file_id):
+    release_file = Release.objects.get(pk=file_id)
+    response = HttpResponse(content=release_file.file.chunks(), mimetype="application/octet-stream")
+    response['Content-Disposition'] = "attachment; filename=%s" % (get_filename(release_file.download_name))

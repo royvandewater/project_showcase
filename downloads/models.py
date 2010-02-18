@@ -1,5 +1,7 @@
 from django.db import models
 
+import re
+
 # Create your models here.
 class Release(models.Model):
     version = models.CharField(max_length=20,unique=True)
@@ -16,3 +18,8 @@ class Release(models.Model):
             return self.display_name
         else:
             return self.file.url.split("/")[-1]
+
+    def download_name(self):
+        filename = self.file.url.split("/")[-1]
+        underscore = re.compile('_+\.')
+        return underscore.sub('.', filename)
