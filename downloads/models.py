@@ -8,7 +8,7 @@ class Release(models.Model):
     release_date = models.DateTimeField()
     file = models.FileField(upload_to="upload/releases/%Y/%m/%d")
     display_name = models.CharField(max_length=255, help_text="Leave blank to use filename", null=True, blank=True)
-    change_log = models.TextField(null=True,blank=True)
+    change_log = models.TextField(null=True,blank=True, help_text="You can enter html in this field")
 
     def __unicode__(self):
         return "v" + self.version
