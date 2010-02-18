@@ -493,16 +493,6 @@
         }
     }, 
     {
-        "pk": 1, 
-        "model": "downloads.release", 
-        "fields": {
-            "change_log": "* First public release", 
-            "release_date": "2010-02-17 22:20:07", 
-            "version": "0.5", 
-            "file": "upload/releases/partybeat.tar_.gz"
-        }
-    }, 
-    {
         "pk": 2, 
         "model": "users.projectuser", 
         "fields": {
