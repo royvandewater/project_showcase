@@ -177,6 +177,7 @@ div.changelog {
 
 div.changelog h2, div.files h2 {
   font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 div.user_form {
