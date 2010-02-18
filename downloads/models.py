@@ -4,7 +4,7 @@ from django.db import models
 class Release(models.Model):
     version = models.CharField(max_length=20,unique=True)
     release_date = models.DateTimeField()
-    file = models.FileField(upload_to="upload/releases/")
+    file = models.FileField(upload_to="upload/releases/%Y/%m/%d")
     change_log = models.TextField(null=True,blank=True)
 
     def __unicode__(self):

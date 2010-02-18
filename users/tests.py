@@ -94,3 +94,19 @@ class UserTests(TestCase):
       self.assertContains(self.client.get(url), "The email address or reset key is incorrect.", status_code=200)
       # Get the reset string from mail
       self.assertContains(self.client.get(reset_url), "Please enter a new password")
+      post_data = {
+              'password':'new_pass',
+              'confirm_password':'old_pass',
+              }
+      self.assertFormError(self.client.post(reset_url, post_data), 'form', 'confirm_password', "Passwords do not match")
+      post_data = {
+              'password':'new_pass',
+              'confirm_password':'new_pass',
+              }
+      self.assertContains(self.client.post(reset_url, post_data), "Your password has been updated.", status_code=200)
+      self.assertContains(self.client.get(reset_url), "Please use the url provided in", status_code=200)
+      post_data = { 
+              'username':'test',
+              'password':'new_pass',
+              }
+      self.assertContains(self.post_view("login", post_data), "You are now logged in", status_code=200)

@@ -11,8 +11,8 @@ class Version(models.Model):
 class Screenshot(models.Model):
     title = models.CharField(max_length=100)
     version = models.ForeignKey(Version)
-    thumbnail = models.ImageField(upload_to="upload/screenshots/thumb/", help_text="Optimum size is 100x75px")
-    full = models.ImageField(upload_to="upload/screenshots/full/")
+    thumbnail = models.ImageField(upload_to="upload/screenshots/thumb/%Y/%m/%d", help_text="Optimum size is 100x75px")
+    full = models.ImageField(upload_to="upload/screenshots/full/%Y/%m/%d")
 
     def __unicode__(self):
         return self.title
