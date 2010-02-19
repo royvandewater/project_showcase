@@ -96,33 +96,30 @@ def forgot(request):
 
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
 
-def reset(request, email=None, reset_string=None):
+def reset(request, email, reset_string):
     content = Content()
     content.title = "Password Reset"
     content.header = "Password Reset"
     content.body = ""
 
-    if email and reset_string:
-        user = User.objects.filter(email=email)
-        if user:
-            user = ProjectUser.objects.get(user=user[0])
+    user = User.objects.filter(email=email)
+    if user:
+        user = ProjectUser.objects.get(user=user[0])
 
-        if user and user.reset_string == reset_string:
-            if request.method == 'POST':
-                form = ResetPasswordForm(request.POST)
-                if form.is_valid():
-                    user.user.set_password(form.cleaned_data["password"])
-                    user.reset_string = None
-                    user.user.save()
-                    user.save()
-                    success_message = 'Your password has been updated. Please try to <a href="%s">log in</a>' % (reverse('users.views.login'))
-            else:
-                content.body = "Please enter a new password"
-                form = ResetPasswordForm()
-            submit_value = "Submit"
-            submit_action = reverse('users.views.reset', kwargs={'email':email, 'reset_string':reset_string})
+    if user and user.reset_string == reset_string:
+        if request.method == 'POST':
+            form = ResetPasswordForm(request.POST)
+            if form.is_valid():
+                user.user.set_password(form.cleaned_data["password"])
+                user.reset_string = None
+                user.user.save()
+                user.save()
+                success_message = 'Your password has been updated. Please try to <a href="%s">log in</a>' % (reverse('users.views.login'))
         else:
-            success_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
-        return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
+            content.body = "Please enter a new password"
+            form = ResetPasswordForm()
+        submit_value = "Submit"
+        submit_action = reverse('users.views.reset', kwargs={'email':email, 'reset_string':reset_string})
     else:
-        return HttpResponseRedirect(reverse('users.views.login'))
+        success_message = "The email address or reset key is incorrect. Please use the url provided in the password reset email"
+    return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))

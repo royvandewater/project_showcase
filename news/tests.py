@@ -78,10 +78,10 @@ class SimpleTest(TestCase):
         """
         Tests that the news view returns code 200
         """
-        self.assertContains( self.url("/"), "<h1>News</h1>", status_code=200)
+        self.assertContains( self.url("/"), "<h1>News</h1>")
 
     def test_view_archive(self):
         """
         Tests that the archive view returns code 200
         """
-        self.assertContains( self.url("/archive/2010/01/"), "<h2>January, 2010</h2>", status_code=200)
+        self.assertContains( self.url("/archive/2010/01/"), "<h2>January, 2010</h2>")

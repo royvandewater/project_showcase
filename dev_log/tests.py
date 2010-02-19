@@ -30,4 +30,4 @@ class SimpleTest(TestCase):
         """
         Tests the index view
         """
-        self.assertContains(self.get_view('index'), "", status_code=200)
+        self.assertContains(self.get_view('index'), "")

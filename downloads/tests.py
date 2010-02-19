@@ -39,13 +39,13 @@ class DownloadsTest(TestCase):
         """
         Tests that the main view returns 200
         """
-        self.assertContains(self.url("/"), "<h1>Downloads</h1>", status_code=200)
+        self.assertContains(self.url("/"), "<h1>Downloads</h1>")
 
     def test_view_past_release(self):
         """
         Tests that the past release view returns 200
         """
-        self.assertContains(self.url("/0.50/"), "<h2>v0.5</h2>", status_code=200)
+        self.assertContains(self.url("/0.50/"), "<h2>v0.5</h2>")
 
     def test_view_download(self):
         self.assertEqual(self.client.get(reverse('downloads.views.download',kwargs={'file_id':1})).status_code, 200)
