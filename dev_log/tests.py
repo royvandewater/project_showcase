@@ -10,8 +10,8 @@ class SimpleTest(TestCase):
     def get_view(self, url):
         return self.client.get(reverse("dev_log.views." + url))
 
-    def post_view(self, url, post_data):
-        return self.client.post(reverse("dev_log.views." + url), post_data)
+    # def post_view(self, url, post_data):
+        # return self.client.post(reverse("dev_log.views." + url), post_data)
 
     def test_model_LogEntry(self):
         le = LogEntry()
