@@ -14,6 +14,22 @@ class UserTests(TestCase):
     def post_view(self, url, post_data):
       return self.client.post(reverse("users.views." + url), post_data)
 
+    def test_model_projectUser(self):
+        """
+        Tests the projectUser model
+        """
+        projectUser = ProjectUser()
+        projectUser.user = User()
+        projectUser.user.username = "testuser"
+        projectUser.user.first_name = "first"
+        projectUser.user.last_name = "last"
+        projectUser.user.email = "test@test.com"
+        projectUser.reset_string = "test reset string"
+        projectUser.user.save()
+        projectUser.save()
+        pu2 = ProjectUser.objects.get(reset_string, "test reset string")
+        self.assertEqual(pu2.user, projectUser.user)
+
     def test_view_new(self):
       """
         Tests the user registration view
