@@ -1,1 +1,12 @@
 {% extends "layout.html" %}
+
+{% block main_content %}
+  {% for entry in log %}
+  <div class="log_entry">
+    <div class="log_commit ui-widget-header ui-corner-top">{{ entry.commit }}</div>
+    <div class="log_author ui-widget-content">{{ entry.author }}</div>
+    <div class="log_date ui-widget-content">{{ entry.datetime }}</div>
+    <div class="log_description ui-widget-content ui-corner-bottom">{{ entry.description }}</div>
+  </div>
+  {% endfor %}
+{% endblock %}

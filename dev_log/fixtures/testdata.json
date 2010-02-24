@@ -1,0 +1,22 @@
+[
+    {
+        "pk": 1, 
+        "model": "dev_log.logentry", 
+        "fields": {
+            "commit": "3a79575d99d7681de6a1b3bc3b9ba8637a45400d", 
+            "datetime": "2010-02-18 18:22:05", 
+            "description": "Fixed double add to playlist on plus button bug.", 
+            "author": "Roy van de Water"
+        }
+    },
+    {
+        "pk": 8, 
+        "model": "main.content", 
+        "fields": {
+            "body": "This is a log of recent progress made on the project. Can be auto populated from the git log.", 
+            "header": "Development Log", 
+            "name": "dev_log", 
+            "title": "Development Log"
+        }
+    }
+]

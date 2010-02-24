@@ -6,6 +6,7 @@ import datetime
 from models import *
 
 class SimpleTest(TestCase):
+    fixtures = ['testdata']
 
     def get_view(self, url):
         return self.client.get(reverse("dev_log.views." + url))
@@ -30,4 +31,5 @@ class SimpleTest(TestCase):
         """
         Tests the index view
         """
-        self.assertContains(self.get_view('index'), "")
+        self.assertContains(self.get_view('index'), "<h1>Development Log</h1>")
+        self.assertContains(self.get_view('index'), "3a79575d99d7681de6a1b3bc3b9ba8637a45400d")
