@@ -8,6 +8,11 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 
+
+# Disable import sha warning
+import warnings
+warnings.simplefilter("ignore",DeprecationWarning)
+
 import sha
 import random
 

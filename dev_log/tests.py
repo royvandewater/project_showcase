@@ -11,21 +11,23 @@ class SimpleTest(TestCase):
     def get_view(self, url):
         return self.client.get(reverse("dev_log.views." + url))
 
-    # def post_view(self, url, post_data):
-        # return self.client.post(reverse("dev_log.views." + url), post_data)
+    def post_view(self, url, post_data):
+        return self.client.post(reverse("dev_log.views." + url), post_data)
 
-    def test_model_LogEntry(self):
-        le = LogEntry()
-        le.commit = "7914202e8548bd25854fd69ec653b5798b15de7f"
-        le.author = "testuser"
-        le.description = "Added test commit for project_showcase"
-        le.datetime = datetime.datetime.now()
-        le.save()
-        le2 = LogEntry.objects.get(commit="7914202e8548bd25854fd69ec653b5798b15de7f")
-        self.assertEqual(le.author, le2.author)
-        self.assertEqual(le.description, le2.description)
-        self.assertEqual(le.datetime.year, le2.datetime.year)
-        self.assertEqual(str(le), le2.description)
+    def test_model_Commit(self):
+        commit = Commit()
+        commit.commit = "7914202e8548bd25854fd69ec653b5798b15de7f"
+        commit.commit_url = "http://github.com/defunkt/github/commit/41a212ee83ca127e3c8cf465891ab7216a705f59"
+        commit.author = "testuser"
+        commit.message = "Added test commit for project_showcase"
+        commit.datetime = datetime.datetime.now()
+        commit.save()
+        commit2 = Commit.objects.get(commit="7914202e8548bd25854fd69ec653b5798b15de7f")
+        self.assertEqual(commit.commit_url, commit2.commit_url)
+        self.assertEqual(commit.author, commit2.author)
+        self.assertEqual(commit.message, commit2.message)
+        self.assertEqual(commit.datetime.year, commit2.datetime.year)
+        self.assertEqual(str(commit), commit2.message)
 
     def test_view_index(self):
         """
@@ -33,3 +35,60 @@ class SimpleTest(TestCase):
         """
         self.assertContains(self.get_view('index'), "<h1>Development Log</h1>")
         self.assertContains(self.get_view('index'), "3a79575d99d7681de6a1b3bc3b9ba8637a45400d")
+
+    def test_view_github(self):
+        """
+        Tests the github integration
+        """
+        self.assertContains(self.get_view('github'), 'Method must be post')
+        self.assertContains(self.post_view('github', {}), "Payload not in post data")
+        post_data = self.get_payload()
+        self.assertContains(self.post_view('github', post_data), 'Success')
+        # Check to make sure the git commits were actually stored
+        commit = Commit.objects.get(commit="41a212ee83ca127e3c8cf465891ab7216a705f59")
+        self.assertEqual(commit.message, "okay i give in")
+
+    # Put at the end because its so long
+    def get_payload(self):
+        return { 'payload':"""
+{
+  "before": "5aef35982fb2d34e9d9d4502f6ede1072793222d",
+  "repository": {
+    "url": "http://github.com/defunkt/github",
+    "name": "github",
+    "description": "You're lookin' at it.",
+    "watchers": 5,
+    "forks": 2,
+    "private": 1,
+    "owner": {
+      "email": "chris@ozmm.org",
+      "name": "defunkt"
+    }
+  },
+  "commits": [
+    {
+      "id": "41a212ee83ca127e3c8cf465891ab7216a705f59",
+      "url": "http://github.com/defunkt/github/commit/41a212ee83ca127e3c8cf465891ab7216a705f59",
+      "author": {
+        "email": "chris@ozmm.org",
+        "name": "Chris Wanstrath"
+      },
+      "message": "okay i give in",
+      "timestamp": "2008-02-15T14:57:17-08:00",
+      "added": ["filepath.rb"]
+    },
+    {
+      "id": "de8251ff97ee194a289832576287d6f8ad74e3d0",
+      "url": "http://github.com/defunkt/github/commit/de8251ff97ee194a289832576287d6f8ad74e3d0",
+      "author": {
+        "email": "chris@ozmm.org",
+        "name": "Chris Wanstrath"
+      },
+      "message": "update pricing a tad",
+      "timestamp": "2008-02-15T14:36:34-08:00"
+    }
+  ],
+  "after": "de8251ff97ee194a289832576287d6f8ad74e3d0",
+  "ref": "refs/heads/master"
+}
+""" }

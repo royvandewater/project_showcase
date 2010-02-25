@@ -1,12 +1,13 @@
 [
     {
         "pk": 1, 
-        "model": "dev_log.logentry", 
+        "model": "dev_log.commit", 
         "fields": {
-            "commit": "3a79575d99d7681de6a1b3bc3b9ba8637a45400d", 
             "datetime": "2010-02-18 18:22:05", 
-            "description": "Fixed double add to playlist on plus button bug.", 
-            "author": "Roy van de Water"
+            "commit": "3a79575d99d7681de6a1b3bc3b9ba8637a45400d", 
+            "message": "Fixed double add to playlist on plus button bug.", 
+            "author": "Roy van de Water", 
+            "commit_url": "http://github.com/defunkt/github/commit/3a79575d99d7681de6a1b3bc3b9ba8637a45400d"
         }
     },
     {

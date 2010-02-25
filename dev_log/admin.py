@@ -2,8 +2,8 @@ from django.contrib import admin
 
 from models import *
 
-class LogEntryAdmin(admin.ModelAdmin):
-    list_display = ('datetime','author','description','commit')
-    search_fields = ['author','description']
+class CommitAdmin(admin.ModelAdmin):
+    list_display = ('datetime','author','message','commit')
+    search_fields = ['author','message']
 
-admin.site.register(LogEntry, LogEntryAdmin)
+admin.site.register(Commit, CommitAdmin)
