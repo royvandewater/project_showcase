@@ -19,5 +19,14 @@
             "name": "dev_log", 
             "title": "Development Log"
         }
+    },
+    {
+        "pk": 1, 
+        "model": "main.setting", 
+        "fields": {
+            "active": 1, 
+            "git_key": "4360e8bc7af4ab553732573a176e4e8d", 
+            "name": "default"
+        }
     }
 ]

@@ -1,4 +1,7 @@
 from django.test import TestCase
+from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
+
 from models import *
 
 class SimpleTest(TestCase):
@@ -35,3 +38,6 @@ class SimpleTest(TestCase):
         self.failUnlessEqual(s.name, s2.name)
         self.failUnlessEqual(s.git_key, s2.git_key)
         self.failUnlessEqual(str(s2), s2.name)
+        kwargs = {'git_key': "4360e8bc7af4ab553732573a176e4e8d"}
+        current_site = Site.objects.get_current()
+        self.failUnlessEqual(s2.github_url(), "http://" + current_site.domain + reverse("dev_log.views.github", kwargs=kwargs))

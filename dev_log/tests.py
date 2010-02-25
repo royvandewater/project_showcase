@@ -8,13 +8,13 @@ from models import *
 class SimpleTest(TestCase):
     fixtures = ['testdata']
 
-    def get_view(self, url):
-        return self.client.get(reverse("dev_log.views." + url))
+    def get_view(self, url, get_params=None):
+        return self.client.get(reverse("dev_log.views." + url, kwargs=get_params))
 
-    def post_view(self, url, post_data):
-        return self.client.post(reverse("dev_log.views." + url), post_data)
+    def post_view(self, url, post_data, get_params=None):
+        return self.client.post(reverse("dev_log.views." + url, kwargs=get_params), post_data)
 
-    def test_model_Commit(self):
+    def test_model_commit(self):
         commit = Commit()
         commit.commit = "7914202e8548bd25854fd69ec653b5798b15de7f"
         commit.commit_url = "http://github.com/defunkt/github/commit/41a212ee83ca127e3c8cf465891ab7216a705f59"
@@ -40,10 +40,13 @@ class SimpleTest(TestCase):
         """
         Tests the github integration
         """
-        self.assertContains(self.get_view('github'), 'Method must be post')
-        self.assertContains(self.post_view('github', {}), "Payload not in post data")
+        kwargs = {'git_key': 'fail'}
+        self.assertContains(self.get_view('github', kwargs), 'Method must be post')
+        self.assertContains(self.post_view('github', {}, kwargs), "Payload not in post data")
         post_data = self.get_payload()
-        self.assertContains(self.post_view('github', post_data), 'Success')
+        self.assertContains(self.post_view('github', post_data, kwargs), 'Github key incorrect')
+        kwargs = {'git_key': '4360e8bc7af4ab553732573a176e4e8d'}
+        self.assertContains(self.post_view('github', post_data, kwargs), 'Success')
         # Check to make sure the git commits were actually stored
         commit = Commit.objects.get(commit="41a212ee83ca127e3c8cf465891ab7216a705f59")
         self.assertEqual(commit.message, "okay i give in")
