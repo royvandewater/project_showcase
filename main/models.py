@@ -9,3 +9,18 @@ class Content(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Setting(models.Model):
+    name = models.CharField(max_length=255)
+    git_key = models.CharField(max_length=255)
+    active = models.BooleanField(help_text="One setting must be active at all times, activating this setting deactivates the currently active one")
+
+    def __unicode__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if self.active:
+            for setting in Setting.objects.filter(active=True):
+                setting.active = False
+                setting.save()
+        super(Setting, self).save(*args, **kwargs)
