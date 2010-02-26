@@ -221,7 +221,7 @@ div.log_entry div {
   padding: 0 4px;
 }
 
-div.log_commit a {
+div.log_entry a {
   text-decoration: none;
 }
 
