@@ -14,6 +14,7 @@ def index(request):
     log = Commit.objects.all().order_by('datetime')
     return render_to_response('dev_log/index.html', locals(), context_instance=RequestContext(request))
 
+@csrf_exempt
 def github(request, git_key):
     if request.method == "POST":
         if request.POST.has_key('payload'):
