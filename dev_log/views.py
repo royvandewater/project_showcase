@@ -12,7 +12,7 @@ from main.models import Setting
 
 def index(request):
     content = Content.objects.get(name='dev_log')    
-    log = Commit.objects.all().order_by('datetime')
+    log = Commit.objects.all().order_by('datetime').reverse()[:10]
     return render_to_response('dev_log/index.html', locals(), context_instance=RequestContext(request))
 
 @csrf_exempt
