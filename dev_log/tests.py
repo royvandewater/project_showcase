@@ -50,6 +50,8 @@ class SimpleTest(TestCase):
         # Check to make sure the git commits were actually stored
         commit = Commit.objects.get(commit="41a212ee83ca127e3c8cf465891ab7216a705f59")
         self.assertEqual(commit.message, "okay i give in")
+        self.assertEqual(commit.datetime.year, 2008)
+        self.assertEqual(commit.datetime.minute, 57)
 
     # Put at the end because its so long
     def get_payload(self):

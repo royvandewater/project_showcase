@@ -5,9 +5,9 @@ import datetime
 import simplejson as json
 
 from models import *
+import helpers
 from main.models import Content
 from main.models import Setting
-
 
 def index(request):
     content = Content.objects.get(name='dev_log')    
@@ -25,7 +25,7 @@ def github(request, git_key):
                     commit.commit_url = key['url']
                     commit.author = key["author"]["name"]
                     commit.message = key["message"]
-                    commit.datetime = datetime.datetime.strptime(key["timestamp"][:-6], "%Y-%m-%dT%H:%M:%S")
+                    commit.datetime = helpers.parse_datetime(key["timestamp"])
                     commit.save()
                 message = "Success"
             else:
