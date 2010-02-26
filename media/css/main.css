@@ -225,5 +225,10 @@ div.log_entry a {
   text-decoration: none;
 }
 
+div.log_entry span.ui-icon {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 div.log_author {
 }
