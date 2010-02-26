@@ -217,8 +217,12 @@ div.log_entry {
   margin-right: auto;
 }
 
-div.log_commit {
+div.log_entry div {
   padding: 0 4px;
+}
+
+div.log_commit a {
+  text-decoration: none;
 }
 
 div.log_author {
