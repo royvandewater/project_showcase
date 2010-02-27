@@ -1,7 +1,7 @@
 from django.db import models
 
 class Commit(models.Model):
-    commit = models.CharField(max_length=255)
+    commit = models.CharField(max_length=255, unique=True)
     commit_url = models.CharField(max_length=255, null=True, blank=True)
     author = models.CharField(max_length=255)
     message = models.TextField()

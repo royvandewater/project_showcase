@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
+from django.db import IntegrityError
 
 import datetime
 import simplejson as json
@@ -22,13 +23,16 @@ def github(request, git_key):
             if git_key == Setting.objects.get(active=True).git_key:
                 data = json.loads(request.POST['payload'])
                 for key in data['commits']:
-                    commit = Commit()
-                    commit.commit = key['id']
-                    commit.commit_url = key['url']
-                    commit.author = key["author"]["name"]
-                    commit.message = key["message"]
-                    commit.datetime = helpers.parse_datetime(key["timestamp"])
-                    commit.save()
+                    try:
+                        commit = Commit()
+                        commit.commit = key['id']
+                        commit.commit_url = key['url']
+                        commit.author = key["author"]["name"]
+                        commit.message = key["message"]
+                        commit.datetime = helpers.parse_datetime(key["timestamp"])
+                        commit.save()
+                    except IntegrityError:
+                        pass
                 message = "Success"
             else:
                 message = "Error: Github key incorrect"

@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.db import IntegrityError
 
 import datetime
 
@@ -28,6 +29,14 @@ class SimpleTest(TestCase):
         self.assertEqual(commit.message, commit2.message)
         self.assertEqual(commit.datetime.year, commit2.datetime.year)
         self.assertEqual(str(commit), commit2.message)
+        # test that duplicate models raise error
+        dup = Commit()
+        dup.commit = commit.commit
+        dup.commit_url = commit.commit_url
+        dup.author = commit.author
+        dup.message = commit.message
+        dup.datetime = commit.datetime
+        self.assertRaises(IntegrityError, dup.save)
 
     def test_view_index(self):
         """
@@ -81,6 +90,16 @@ class SimpleTest(TestCase):
       "message": "okay i give in",
       "timestamp": "2008-02-15T14:57:17-08:00",
       "added": ["filepath.rb"]
+    },
+    {
+      "id": "de8251ff97ee194a289832576287d6f8ad74e3d0",
+      "url": "http://github.com/defunkt/github/commit/de8251ff97ee194a289832576287d6f8ad74e3d0",
+      "author": {
+        "email": "chris@ozmm.org",
+        "name": "Chris Wanstrath"
+      },
+      "message": "update pricing a tad",
+      "timestamp": "2008-02-15T14:36:34-08:00"
     },
     {
       "id": "de8251ff97ee194a289832576287d6f8ad74e3d0",
