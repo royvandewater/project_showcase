@@ -6,10 +6,12 @@
     <h2>Changelog</h2>
     {{ active_release.change_log|safe }}
   </div>
+  {% if active_release.file %}
   <div class="files">
     <h2>Files</h2>
     <a href="{% url downloads.views.download active_release.pk %}">{{ active_release.filename }}</a>
   </div>
+  {% endif %}
 </div>
 {% endblock %}
 
