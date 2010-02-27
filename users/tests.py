@@ -21,13 +21,7 @@ class UserTests(TestCase):
         Tests the projectUser model
         """
         projectUser = ProjectUser()
-        user = User()
-        user.username = "testuser"
-        user.first_name = "first"
-        user.last_name = "last"
-        user.email = "test@test.com"
-        user.save()
-        projectUser.user = user
+        projectUser.build_user("testuser","first","last","test@test.com")
         projectUser.reset_string = "test reset string"
         projectUser.save()
         pu2 = ProjectUser.objects.get(reset_string="test reset string")

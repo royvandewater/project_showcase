@@ -8,3 +8,12 @@ class ProjectUser(models.Model):
 
     def __unicode__(self):
         return "%s (%s)" % (self.user.username, self.user.get_full_name())
+
+    def build_user(self, username, first_name, last_name, email):
+        user = User()
+        user.username = username
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.save()
+        self.user = user
