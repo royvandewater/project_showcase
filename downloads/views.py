@@ -5,17 +5,20 @@ from django.template import RequestContext
 from models import *
 from main.models import Content
 
-def index(request):
-    content = Content.objects.get(name='downloads')
-    releases = Release.objects.order_by('release_date').reverse()
-    active_release = releases[0]
-    sub_header = str(active_release)
-    return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
+def load_content(function):
+    def wrapper(*args, **kwargs):
+        content = Content.objects.get(name='downloads')
+        releases = Release.objects.order_by('release_date').reverse()
+        return function(content=content, releases=releases, *args, **kwargs)
+    return wrapper
 
-def show(request, release):
-    content = Content.objects.get(name='downloads')
+@load_content
+def index(request, content, releases):
+    return show(request, release=releases[0])
+
+@load_content
+def show(request, content, releases, release):
     active_release = Release.objects.get(version=release)
-    releases = Release.objects.order_by('release_date').reverse()
     sub_header = str(active_release)
     return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
 
