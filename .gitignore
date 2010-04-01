@@ -3,3 +3,5 @@
 settings.py
 .coverage
 media/upload/*
+.pida-metadata/
+.ropeproject/
