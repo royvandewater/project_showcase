@@ -9,6 +9,11 @@ class Status(models.Model):
     def __unicode__(self):
         return self.name
 
+class Comment(models.Model):
+    user = models.ForeignKey('users.ProjectUser')
+    created_date = models.DateField(auto_now=True)
+    message = models.TextField()
+
 class Ticket(models.Model):
     name = models.CharField(max_length=255)
     creator = models.ForeignKey('users.ProjectUser')
@@ -17,6 +22,8 @@ class Ticket(models.Model):
     open_date = models.DateField(auto_now=True)
     close_date = models.DateField(blank=True, null=True)
     priority = models.IntegerField()
+    comments = models.ManyToManyField(Comment)
 
     def __unicode__(self):
         return self.name
+
