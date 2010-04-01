@@ -75,21 +75,13 @@ class SimpleTest(TestCase):
         t.save()
 
         # build first comment
-        c1 = Comment()
-        c1.user = projectUser
-        c1.message = "First"
-        c1.save()
+        c1 = t.comments.create(user = projectUser, message = "First")
 
         # build second comment
-        c2 = Comment()
-        c2.user = projectUser2
-        c2.message = "Second"
-        c2.save()
+        c2 = t.comments.create(user = projectUser2, message = "Second")
 
-        t.comments.add(c1)
-        t.comments.add(c2)
         t.save()
 
         t2 = Ticket.objects.get(name="name")
         comments = t2.comments.all()
-        self.failUnlessEqual(c1.message,comments[0].message)
+        self.failUnlessEqual("First",comments[0].message)
