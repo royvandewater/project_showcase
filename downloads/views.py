@@ -6,16 +6,13 @@ from models import *
 from main.models import Content
 
 def index(request):
-    content = Content.objects.get(name='downloads')
-    releases = Release.objects.order_by('release_date').reverse()
-    active_release = releases[0]
-    sub_header = str(active_release)
-    return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
+    release = Release.objects.order_by('release_date').reverse()[0]
+    return show(request, release=release)
 
 def show(request, release):
     content = Content.objects.get(name='downloads')
-    active_release = Release.objects.get(version=release)
     releases = Release.objects.order_by('release_date').reverse()
+    active_release = Release.objects.get(version=release)
     sub_header = str(active_release)
     return render_to_response('downloads/index.html', locals(), context_instance=RequestContext(request))
 
