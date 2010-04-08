@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
 import datetime
 
@@ -6,13 +7,13 @@ from models import *
 from users.models import ProjectUser
 
 class TicketsTest(TestCase):
-    fixtures = ['tickets','main']
+    fixtures = ['tickets','main','users']
 
     def get_view(self, url):
-      return self.client.get(reverse("users.views." + url))
+      return self.client.get(reverse("tickets.views." + url))
 
     def post_view(self, url, post_data):
-      return self.client.post(reverse("users.views." + url), post_data)
+      return self.client.post(reverse("tickets.views." + url), post_data)
 
     def test_model_status(self):
         """
@@ -57,6 +58,22 @@ class TicketsTest(TestCase):
         self.failUnlessEqual(t.priority, t2.priority)
         self.failUnlessEqual(str(t2), t2.name)
 
+    def test_model_comment(self):
+        """
+        Tests the Comment model
+        """
+        u = ProjectUser.objects.all()[0]
+        t = Ticket.objects.all()[0]
+        c = Comment()
+        c.user = u
+        c.message = "Comment message"
+        c.ticket = t
+        c.save()
+        c2 = Comment.objects.get(message="Comment message")
+        self.failUnlessEqual(c.message, c2.message)
+        self.failUnlessEqual(str(c), u.user.email)
+
+
     def test_relationship_ticket_comment(self):
         # Build a user
         projectUser = ProjectUser()
@@ -94,5 +111,6 @@ class TicketsTest(TestCase):
         self.failUnlessEqual("First",comments[0].message)
 
     def test_view_index(self):
-        # Go to the index page
-        pass
+        # Go to the tickets index page, should be a listing of all the tickets
+        self.assertContains(self.get_view('index'), "First Ticket")
+        self.assertContains(self.get_view('index'), "Second Ticket")

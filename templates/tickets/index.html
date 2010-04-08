@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+  {% for ticket in tickets %}
+  <div class="ticket">
+    <div class="ticket_author ui-widget-header ui-corner-top">
+      {{ ticket.creator }}
+      <a href="#">{{ ticket.name|slice:":16" }}</a>
+    </div>
+    <div class="ticket_date ui-widget-content">
+      {{ ticket.open_date|date:"m/d/Y" }} at {{ entry.datetime|time:"g:i a" }}
+    </div>
+    <div class="ticket_description ui-widget-content ui-corner-bottom">
+      {{ ticket.description }}
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

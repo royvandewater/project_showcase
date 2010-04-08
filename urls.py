@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     (r'^news/', include('news.urls')),
     (r'^screenshots/', include('screenshots.urls')),
     (r'^users/', include('users.urls')),
-    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^tickets/', include('tickets.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
