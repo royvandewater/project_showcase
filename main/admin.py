@@ -8,7 +8,7 @@ class ContentAdmin(admin.ModelAdmin):
 class SettingAdmin(admin.ModelAdmin):
     list_display = ('name','active','github_url')
     fieldsets = [
-            (None,                  {'fields': ['name', 'active']}),
+            (None,                  {'fields': ['name', 'active','theme']}),
             ('Github integration',  {'fields': ['git_key']}),
     ]
 

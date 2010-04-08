@@ -16,6 +16,7 @@ class Setting(models.Model):
     name = models.CharField(max_length=255)
     git_key = models.CharField(max_length=255, help_text="Must be an alphanumeric string, no spaces or symbols. Your github key can be used for github's post-receive hooks. The url is in the form of http://yoursite.com/log/github/gitkey/<replace_with_your_key>/")
     active = models.BooleanField(help_text="One setting must be active at all times, activating this setting deactivates the currently active one")
+    theme = models.CharField(max_length=255, help_text="Place jquery-ui theme in MEDIA_PATH/themes/ and enter theme name here")
 
     def __unicode__(self):
         return self.name

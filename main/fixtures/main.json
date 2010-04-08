@@ -85,7 +85,8 @@
         "fields": {
             "active": false, 
             "git_key": "secretKey", 
-            "name": "inactive"
+            "name": "inactive",
+            "theme": "blitzer"
         }
     }, 
     {
@@ -94,7 +95,8 @@
         "fields": {
             "active": true, 
             "git_key": "4360e8bc7af4ab553732573a176e4e8d", 
-            "name": "default"
+            "name": "default",
+            "theme": "blitzer"
         }
     }
 ]

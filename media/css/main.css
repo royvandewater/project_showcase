@@ -210,25 +210,30 @@ div.user_form p {
   height: 35px;
 }
 
-div.log_entry {
+div.log_entry, div.ticket {
   width: 550px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 }
 
-div.log_entry div {
+div.log_entry div, div.ticket div {
   padding: 0 4px;
 }
 
-div.log_entry a {
+div.ticket div span.creation_date {
+  float: left;
+}
+
+div.ticket div span.author {
+  float: right;
+}
+
+div.log_entry a, div.ticket a {
   text-decoration: none;
 }
 
 div.log_entry span.ui-icon {
   display: inline-block;
   vertical-align: baseline;
-}
-
-div.log_author {
 }
