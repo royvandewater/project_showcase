@@ -5,3 +5,4 @@ settings.py
 media/upload/*
 .pida-metadata/
 .ropeproject/
+project_showcase.pidaproject
