@@ -12,7 +12,7 @@ from views import *
 import datetime
 
 class SimpleTest(TestCase):
-    fixtures = ['testdata']
+    fixtures = ['news','main']
 
     def url(self, url):
         return self.client.get("/news%s" % (url))
@@ -45,9 +45,9 @@ class SimpleTest(TestCase):
         tag1.name = "test"
         tag1.save()
         tag2 = Tag.objects.get(name="test")
-        self.failUnlessEqual(tag1, tag2) 
-        self.failUnlessEqual(tag2.name, "test") 
-        self.failUnlessEqual(str(tag2), "test") 
+        self.failUnlessEqual(tag1, tag2)
+        self.failUnlessEqual(tag2.name, "test")
+        self.failUnlessEqual(str(tag2), "test")
 
     def test_model_relationship_article_tag(self):
         art1 = Article()

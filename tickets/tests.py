@@ -5,7 +5,14 @@ import datetime
 from models import *
 from users.models import ProjectUser
 
-class SimpleTest(TestCase):
+class TicketsTest(TestCase):
+    fixtures = ['tickets','main']
+
+    def get_view(self, url):
+      return self.client.get(reverse("users.views." + url))
+
+    def post_view(self, url, post_data):
+      return self.client.post(reverse("users.views." + url), post_data)
 
     def test_model_status(self):
         """
@@ -85,3 +92,7 @@ class SimpleTest(TestCase):
         t2 = Ticket.objects.get(name="name")
         comments = t2.comments.all()
         self.failUnlessEqual("First",comments[0].message)
+
+    def test_view_index(self):
+        # Go to the index page
+        pass

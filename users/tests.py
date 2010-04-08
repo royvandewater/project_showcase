@@ -7,7 +7,7 @@ import re
 from models import *
 
 class UserTests(TestCase):
-    fixtures = ['testdata']
+    fixtures = ['users','main']
     reset_url = None
 
     def get_view(self, url):
@@ -35,7 +35,7 @@ class UserTests(TestCase):
       self.assertContains(self.get_view("new"), "<h1>Register</h1>")
       self.assertContains(self.get_view("new"), "Confirm Password")
       # Try to submit with too-short passwords
-      post_data = { 
+      post_data = {
           'email':'test@partybeat.net',
           'username':'test',
           'first_name':'first',
@@ -65,17 +65,17 @@ class UserTests(TestCase):
       """
       self.assertContains(self.get_view("login"), "<h1>Login</h1>")
       self.assertContains(self.get_view("login"), "Username:")
-      post_data = { 
+      post_data = {
               'username':'test',
               'password':'wrong_password',
               }
       self.assertContains(self.post_view("login", post_data), "Username/password combination not found")
-      post_data = { 
+      post_data = {
               'username':'disabled',
               'password':'password',
               }
       self.assertContains(self.post_view("login", post_data), "Account has been disabled")
-      post_data = { 
+      post_data = {
               'username':'test',
               'password':'password',
               }

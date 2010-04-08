@@ -4,7 +4,7 @@ import datetime
 from django.test import TestCase
 
 class SimpleTest(TestCase):
-    fixtures = ['testdata']
+    fixtures = ['screenshots','main']
 
     def url(self, url):
         return self.client.get("/screenshots%s" % (url))

@@ -7,7 +7,7 @@ import datetime
 from models import *
 
 class DownloadsTest(TestCase):
-    fixtures = ['testdata']
+    fixtures = ['downloads','main']
 
     def get_view(self, url, get_params=None):
         return self.client.get(reverse("downloads.views." + url, kwargs=get_params))

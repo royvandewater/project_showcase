@@ -1,25 +1,5 @@
 [
     {
-        "pk": 6, 
-        "model": "main.content", 
-        "fields": {
-            "body": "Please register to contribute to this project's Wiki and Issue Tracker.", 
-            "header": "Register", 
-            "name": "register", 
-            "title": "Register"
-        }
-    },
-    {
-        "pk": 7, 
-        "model": "main.content", 
-        "fields": {
-            "body": "Please login to contribute to this site's Wiki and Issue Tracker", 
-            "header": "Login", 
-            "name": "login", 
-            "title": "Login"
-        }
-    }, 
-    {
         "pk": 4, 
         "model": "auth.user", 
         "fields": {

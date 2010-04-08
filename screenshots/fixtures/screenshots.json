@@ -34,15 +34,5 @@
       "full": "upload/screenshots/full/moonwalk2808dd4akz4.jpg", 
       "title": "Queue"
     }
-  },
-  {
-    "pk": 4, 
-    "model": "main.content", 
-    "fields": {
-      "body": "", 
-      "header": "Screenshots", 
-      "name": "screenshots", 
-      "title": "Screenshots"
-    }
   }
 ]

@@ -1,0 +1,73 @@
+[
+    {
+        "pk": 1, 
+        "model": "tickets.status", 
+        "fields": {
+            "name": "Accepted"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "tickets.status", 
+        "fields": {
+            "name": "New"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "tickets.status", 
+        "fields": {
+            "name": "Assigned"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "tickets.status", 
+        "fields": {
+            "name": "Closed"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "tickets.status", 
+        "fields": {
+            "name": "Reopened"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "tickets.ticket", 
+        "fields": {
+            "status": 1, 
+            "description": "Everything's broken, plz fix! kthxbye!", 
+            "creator": 4, 
+            "priority": 1, 
+            "close_date": null, 
+            "open_date": "2010-04-08", 
+            "name": "First Ticket"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "tickets.ticket", 
+        "fields": {
+            "status": 2, 
+            "description": "This is the second ticket", 
+            "creator": 6, 
+            "priority": 2, 
+            "close_date": null, 
+            "open_date": "2010-04-08", 
+            "name": "Second Ticket"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "tickets.comment", 
+        "fields": {
+            "message": "Test message", 
+            "ticket": 1, 
+            "user": 4, 
+            "created_date": "2010-04-01"
+        }
+    }
+]

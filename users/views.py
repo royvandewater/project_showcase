@@ -89,10 +89,10 @@ def forgot(request):
                 user.save()
 
                 current_site = Site.objects.get_current()
-                email_message = """ 
+                email_message = """
                     Click this link to reset your password,
                     http://""" + current_site.domain + reverse("users.views.reset", kwargs={'email':user.user.email, 'reset_string':user.reset_string})
-                    
+
             send_mail("Partybeat password reset", email_message, "support@partybeat.net", [user.user.email], fail_silently=False)
 
             content.body = "An email with the reset link has been sent"

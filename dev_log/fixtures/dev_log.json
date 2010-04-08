@@ -9,24 +9,5 @@
             "author": "Roy van de Water", 
             "commit_url": "http://github.com/defunkt/github/commit/3a79575d99d7681de6a1b3bc3b9ba8637a45400d"
         }
-    },
-    {
-        "pk": 8, 
-        "model": "main.content", 
-        "fields": {
-            "body": "This is a log of recent progress made on the project. Can be auto populated from the git log.", 
-            "header": "Development Log", 
-            "name": "dev_log", 
-            "title": "Development Log"
-        }
-    },
-    {
-        "pk": 1, 
-        "model": "main.setting", 
-        "fields": {
-            "active": 1, 
-            "git_key": "4360e8bc7af4ab553732573a176e4e8d", 
-            "name": "default"
-        }
     }
 ]

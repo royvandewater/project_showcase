@@ -7,7 +7,7 @@ import datetime
 from models import *
 
 class SimpleTest(TestCase):
-    fixtures = ['dev_log.json']
+    fixtures = ['dev_log','main']
 
     def get_view(self, url, get_params=None):
         return self.client.get(reverse("dev_log.views." + url, kwargs=get_params))
