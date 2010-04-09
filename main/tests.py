@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from models import *
 
 class SimpleTest(TestCase):
-    fixtures = ['testdata']
+    fixtures = ['main']
 
     def testContent(self):
         """
@@ -33,6 +33,7 @@ class SimpleTest(TestCase):
         s.name = "new"
         s.git_key = "4360e8bc7af4ab553732573a176e4e8d"
         s.active = True
+        s.theme = Theme.objects.all()[0]
         s.save()
         s2 = Setting.objects.get(active=True)
         self.failUnlessEqual(s.name, s2.name)

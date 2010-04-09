@@ -58,6 +58,11 @@ body {
 #navigation ul li a {
   display: block;
   text-decoration: none;
+  font-weight: bold;
+}
+
+#navigation ul li a:hover {
+  font-weight: bold;
 }
 
 #main-area {
@@ -110,6 +115,7 @@ body {
   width: 155px;
   position: relative;
   bottom: 1px;
+  background-position: top left;
 }
 
 #side-navigation-content {
