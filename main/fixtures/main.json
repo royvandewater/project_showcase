@@ -80,6 +80,16 @@
         }
     }, 
     {
+        "pk": 9, 
+        "model": "main.content", 
+        "fields": {
+            "body": "This is the place to manage all you project's tickets.", 
+            "header": "Tickets", 
+            "name": "tickets", 
+            "title": "Tickets"
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "main.setting", 
         "fields": {

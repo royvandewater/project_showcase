@@ -10,10 +10,25 @@ class TicketsTest(TestCase):
     fixtures = ['tickets','main','users']
 
     def get_view(self, url):
-      return self.client.get(reverse("tickets.views." + url))
+        try:
+            url.index(".") # Will throw ValueError if contains no .'s
+            return self.client.get(reverse(url))
+        except ValueError:
+            return self.client.get(reverse("tickets.views." + url))
 
     def post_view(self, url, post_data):
-      return self.client.post(reverse("tickets.views." + url), post_data)
+        try:
+            url.index(".") # Will throw ValueError if contains no .'s
+            return self.client.post(reverse(url), post_data)
+        except ValueError:
+            return self.client.post(reverse("tickets.views." + url), post_data)
+
+    def log_in(self):
+        post_data = {
+                'username':'test',
+                'password':'password',
+                }
+        self.post_view("users.views.login", post_data)
 
     def test_model_status(self):
         """
@@ -114,3 +129,16 @@ class TicketsTest(TestCase):
         # Go to the tickets index page, should be a listing of all the tickets
         self.assertContains(self.get_view('index'), "First Ticket")
         self.assertContains(self.get_view('index'), "Second Ticket")
+        # As a guest ISNBAT see a link to create a new ticket 
+        self.assertNotContains(self.get_view('index'), "new ticket")
+        # As a registered user ISBAT see a link to create a new ticket 
+        self.log_in()
+        self.assertContains(self.get_view('index'), "new ticket")
+
+    def test_view_new(self):
+        # As a guest ISNBAT access this view (should get redirected to home page)
+        expected_url = "{0}?next={1}".format(reverse('users.views.login'), reverse('tickets.views.new'))
+        self.assertRedirects(self.get_view('new'), expected_url)
+        # As an authenticated user ISBAT to acces the view
+        self.log_in()
+        self.assertTemplateUsed(self.get_view('new'), 'tickets/new.html')

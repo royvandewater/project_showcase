@@ -16,6 +16,13 @@ body {
   -webkit-border-top-left-radius: 25px;
 }
 
+#main-area.ui-corner-bottom {
+  -moz-border-radius-bottomleft: 25px;
+  -webkit-border-bottom-left-radius: 25px;
+  -moz-border-radius-bottomright: 25px;
+  -webkit-border-bottom-right-radius: 25px;
+}
+
 #wrapper {
   width: 960px;
   margin: 10px auto 10px;
@@ -70,6 +77,7 @@ body {
   width: 750px;
   min-height: 600px;
   padding: 25px;
+  margin-bottom: 10px;
 }
 
 #content-header {
@@ -147,7 +155,7 @@ body {
 
 .screenshot_thumb {
   float: left;
-  margin: 30px 30px 0;
+  margin: 30px 34px 0;
 }
 
 .screenshot_thumb img {
@@ -190,27 +198,27 @@ div.changelog ul {
   margin-left: 20px;
 }
 
-div.user_form {
+div.general_form {
   margin: 50px 70px;
 }
 
-div.user_form ul.errorlist {
+div.general_form ul.errorlist {
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   padding: 0 5px;
   list-style: inside disc;
 }
 
-div.user_form label {
+div.general_form label {
   float: left;
   margin-top: 3px;
 }
 
-div.user_form input {
+div.general_form input {
   float: right;
 }
 
-div.user_form p {
+div.general_form p {
   clear: both;
   width: 460px;
   height: 35px;

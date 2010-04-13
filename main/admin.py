@@ -12,5 +12,9 @@ class SettingAdmin(admin.ModelAdmin):
             ('Github integration',  {'fields': ['git_key']}),
     ]
 
+class ThemeAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Content, ContentAdmin)
 admin.site.register(Setting, SettingAdmin)
+admin.site.register(Theme, ThemeAdmin)

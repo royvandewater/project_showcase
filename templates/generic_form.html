@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+  {% block form_header %}
+  {% endblock %}
+  <div class="narrow_content">
+    {% if success_message %}
+      {{ success_message|safe }}
+    {% else %}
+      <div class="general_form">
+        {% if error_message %}
+        <ul class="errorlist">
+          <li>{{ error_message|safe }}</li>
+        </ul>
+        {% endif %}
+        <form action="{{ submit_action }}" method="post" >
+          {% csrf_token %}
+          {{ form.as_p }}
+          <p>
+            <input type="submit" value="{{ submit_value }}" />
+          </p>
+        </form>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
