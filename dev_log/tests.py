@@ -54,7 +54,7 @@ class SimpleTest(TestCase):
         self.assertContains(self.post_view('github', {}, kwargs), "Payload not in post data")
         post_data = self.get_payload()
         self.assertContains(self.post_view('github', post_data, kwargs), 'Github key incorrect')
-        kwargs = {'git_key': '4360e8bc7af4ab553732573a176e4e8d'}
+        kwargs = {'git_key': 'b6af6812b14cd075d38f53c08e2e2f43'}
         self.assertContains(self.post_view('github', post_data, kwargs), 'Success')
         # Check to make sure the git commits were actually stored
         commit = Commit.objects.get(commit="41a212ee83ca127e3c8cf465891ab7216a705f59")

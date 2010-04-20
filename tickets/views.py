@@ -24,6 +24,7 @@ def new(request):
             ticket.status = Status.objects.get(name="new")
             ticket.creator = ProjectUser.objects.get(user=request.user.pk)
             ticket.save()
+            success_message = "Ticket submitted"
     else:
         form = NewTicketForm()
 

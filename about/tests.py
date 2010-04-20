@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 class SimpleTest(TestCase):
-    fixtures = ['about']
+    fixtures = ['about','main']
 
     def url(self, url):
         return self.client.get("/about%s" % (url))

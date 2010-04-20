@@ -64,8 +64,6 @@ def login(request):
                 if user.is_active:
                     auth.login(request, user)
                     success_message = "You are now logged in"
-                    import pdb
-                    pdb.set_trace()
                     if callback_url:
                         return HttpResponseRedirect(callback_url)
                 else:
