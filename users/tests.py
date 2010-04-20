@@ -125,7 +125,7 @@ class UserTests(TestCase):
               }
       self.assertContains(self.client.post(reset_url, post_data), "Your password has been updated.")
       self.assertContains(self.client.get(reset_url), "Please use the url provided in")
-      post_data = { 
+      post_data = {
               'username':'test',
               'password':'new_pass',
               }

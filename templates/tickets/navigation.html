@@ -6,6 +6,6 @@
 
 {% if request.user.username %}
 <div id="new_ticket_link">
-  <a href="#">new ticket</a>
+  <a href="{% url tickets.views.new %}">new ticket</a>
 </div>
 {% endif %}

@@ -139,6 +139,16 @@ class TicketsTest(TestCase):
         # As a guest ISNBAT access this view (should get redirected to home page)
         expected_url = "{0}?next={1}".format(reverse('users.views.login'), reverse('tickets.views.new'))
         self.assertRedirects(self.get_view('new'), expected_url)
+
         # As an authenticated user ISBAT to acces the view
         self.log_in()
         self.assertTemplateUsed(self.get_view('new'), 'tickets/new.html')
+
+        # As an authenticated user ISBAT to create a new ticket
+        post_data = {
+                'name'       : 'Test Ticket',
+                'priority'   : '1',
+                'description': 'ticket description'
+                }
+
+        self.assertContains(self.post_view('new', post_data), "Ticket submitted")

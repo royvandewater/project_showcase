@@ -218,6 +218,12 @@ div.general_form input {
   float: right;
 }
 
+div.general_form textarea {
+  float: right;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
 div.general_form p {
   clear: both;
   width: 460px;
