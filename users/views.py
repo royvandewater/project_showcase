@@ -50,6 +50,12 @@ def login(request):
     content.body += '<br><a href="' + reverse('users.views.forgot') + '" class="forgot_password_link">forgot password?</a>'
     submit_value = "Login"
     submit_action = reverse('users.views.login')
+    # Set the callback url
+    try:
+        callback_url = request.GET["next"]
+    except KeyError:
+        callback_url = ""
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -58,12 +64,17 @@ def login(request):
                 if user.is_active:
                     auth.login(request, user)
                     success_message = "You are now logged in"
+                    import pdb
+                    pdb.set_trace()
+                    if callback_url:
+                        return HttpResponseRedirect(callback_url)
                 else:
                     error_message = "Account has been disabled"
             else:
                 error_message = "Username/password combination not found"
     else:
         form = LoginForm()
+
     return render_to_response('users/index.html', locals(), context_instance=RequestContext(request))
 
 def destroy(request):

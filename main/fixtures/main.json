@@ -80,13 +80,23 @@
         }
     }, 
     {
+        "pk": 9, 
+        "model": "main.content", 
+        "fields": {
+            "body": "This is the place to manage all you project's tickets.", 
+            "header": "Tickets", 
+            "name": "tickets", 
+            "title": "Tickets"
+        }
+    }, 
+    {
         "pk": 1, 
         "model": "main.setting", 
         "fields": {
             "active": false, 
+            "theme": 1, 
             "git_key": "secretKey", 
-            "name": "inactive",
-            "theme": "blitzer"
+            "name": "default"
         }
     }, 
     {
@@ -94,9 +104,16 @@
         "model": "main.setting", 
         "fields": {
             "active": true, 
-            "git_key": "4360e8bc7af4ab553732573a176e4e8d", 
-            "name": "default",
-            "theme": "blitzer"
+            "theme": 1, 
+            "git_key": "b6af6812b14cd075d38f53c08e2e2f43", 
+            "name": "custom"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "main.theme", 
+        "fields": {
+            "name": "blitzer"
         }
     }
 ]

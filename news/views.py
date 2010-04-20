@@ -18,7 +18,6 @@ def get_article_dates():
     return dates
 
 def index(request):
-    print(request)
     content = Content.objects.get(name='news') 
     articles = Article.objects.order_by('publish_date')[:10]
     dates = get_article_dates()
