@@ -152,3 +152,5 @@ class TicketsTest(TestCase):
                 }
 
         self.assertContains(self.post_view('new', post_data), "Ticket submitted")
+        t = Ticket.objects.get(name="Test Ticket")
+        self.assertEqual(t.description, 'ticket description')
