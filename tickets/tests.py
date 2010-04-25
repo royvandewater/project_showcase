@@ -9,12 +9,12 @@ from users.models import ProjectUser
 class TicketsTest(TestCase):
     fixtures = ['tickets','main','users']
 
-    def get_view(self, url):
+    def get_view(self, url, kwargs=None):
         try:
             url.index(".") # Will throw ValueError if contains no .'s
-            return self.client.get(reverse(url))
+            return self.client.get(reverse(url, kwargs=kwargs))
         except ValueError:
-            return self.client.get(reverse("tickets.views." + url))
+            return self.client.get(reverse("tickets.views.{0}".format(url), kwargs=kwargs))
 
     def post_view(self, url, post_data):
         try:
@@ -127,8 +127,9 @@ class TicketsTest(TestCase):
 
     def test_view_index(self):
         # Go to the tickets index page, should be a listing of all the tickets
-        self.assertContains(self.get_view('index'), "First Ticket")
-        self.assertContains(self.get_view('index'), "Second Ticket")
+        page = self.get_view('index')
+        self.assertContains(page, "First Ticket")
+        self.assertContains(page, "Second Ticket")
         # As a guest ISNBAT see a link to create a new ticket 
         self.assertNotContains(self.get_view('index'), "new ticket")
         # As a registered user ISBAT see a link to create a new ticket 
@@ -154,3 +155,10 @@ class TicketsTest(TestCase):
         self.assertContains(self.post_view('new', post_data), "Ticket submitted")
         t = Ticket.objects.get(name="Test Ticket")
         self.assertEqual(t.description, 'ticket description')
+        
+    def test_view_show(self):
+        # tickets.TicketsTest.test_view_show
+        # As a user ISBAT view ticket details
+        t = Ticket.objects.all()[0];
+        page = self.get_view("show", kwargs={'ticket':t.pk})
+        self.assertContains(page, t.name);

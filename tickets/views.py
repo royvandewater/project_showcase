@@ -2,10 +2,10 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
-from models import *
 from forms import *
 from main.models import Content
+from models import *
+
 
 def index(request):
     content = Content.objects.get(name='tickets')
@@ -30,4 +30,7 @@ def new(request):
 
     submit_value = "Create"
     submit_action = reverse('tickets.views.new')
+    return render_to_response('tickets/new.html', locals(), context_instance=RequestContext(request))
+
+def show(request, ticket):
     return render_to_response('tickets/new.html', locals(), context_instance=RequestContext(request))
