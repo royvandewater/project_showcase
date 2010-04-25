@@ -1,0 +1,133 @@
+# Django settings for project_showcase project.
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+INTERNAL_IPS = ("127.0.0.1",)
+
+ADMINS = (
+    # ('Your Name', 'your_email@domain.com'),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'project_showcase',                      # Or path to database file if using sqlite3.
+        'USER': 'project_showcase',                      # Not used with sqlite3.
+        'PASSWORD': '8WJAVKUBnzVFqCjD',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+# Email settings
+EMAIL_HOST = "mail.partybeat.net"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "support@partybeat.net"
+EMAIL_HOST_PASSWORD = "pumpitup"
+
+# Local time zone for this installation. Choices can be found here:
+# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+# although not all choices may be available on all operating systems.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'America/Phoenix'
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = 'en-us'
+
+SITE_ID = 1
+
+# If you set this to False, Django will make some optimizations so as not
+# to load the internationalization machinery.
+USE_I18N = True
+
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = '/home/doppler/workspace/project_showcase/src/project_showcase/media/'
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = 'http://localhost/wps/media/'
+
+# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
+# trailing slash.
+# Examples: "http://foo.com/media/", "/media/".
+ADMIN_MEDIA_PREFIX = '/media/admin/'
+
+# Profile to use (custom info needed)
+ADMIN_PROFILE_MODULE = 'users.ProjectUser'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '!io1w-%2tl17xy2fn40u+hojqpf_j)rm6a)y$m_n_5=v*rx8w!'
+
+# Login url, used by the login_required decorator
+LOGIN_URL='/users/login/'
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+)
+
+ROOT_URLCONF = 'project_showcase.urls'
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    "/home/doppler/workspace/project_showcase/src/project_showcase/templates/",
+)
+
+INSTALLED_APPS = (
+    'devserver',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'project_showcase.main',
+    'project_showcase.news',
+    'project_showcase.about',
+    'project_showcase.screenshots',
+    'project_showcase.downloads',
+    'project_showcase.users',
+    'project_showcase.dev_log',
+    'project_showcase.tickets',
+)
+
+DEVSERVER_MODULES = (
+    'devserver.modules.sql.SQLRealTimeModule',
+    'devserver.modules.sql.SQLSummaryModule',
+    'devserver.modules.profile.ProfileSummaryModule',
+
+    # Modules not enabled by default
+    # 'devserver.modules.profile.MemoryUseModule',
+    # 'devserver.modules.cache.CacheSummaryModule',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.contrib.messages.context_processors.messages",
+    "main.context_processors.load_setting"
+)
+
+DEVSERVER_TRUNCATE_SQL = False
