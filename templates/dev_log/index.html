@@ -4,12 +4,16 @@
   {% for entry in log %}
   <div class="log_entry">
     <div class="log_author ui-widget-header ui-corner-top">
-      {{ entry.author }}
-      {% if entry.commit_url %}
-      - <a href="{{ entry.commit_url }}">{{ entry.commit|slice:":8" }}...<span class="ui-icon ui-icon-extlink"></span></a>
-      {% endif %}
+      <span class="author">
+        {{ entry.author }}
+        {% if entry.commit_url %}
+          - <a href="{{ entry.commit_url }}">{{ entry.commit|slice:":8" }}...<span class="ui-icon ui-icon-extlink"></span></a>
+        {% endif %}
+      </span>
+      <span class="log_date">{{ entry.datetime|date:"m/d/Y" }} at {{ entry.datetime|time:"g:i a" }}</span>
+      <div class="clearboth"></div>
     </div>
-    <div class="log_date ui-widget-content">{{ entry.datetime|date:"m/d/Y" }} at {{ entry.datetime|time:"g:i a" }}</div>
+    
     <div class="log_description ui-widget-content ui-corner-bottom">{{ entry.message }}</div>
   </div>
   {% endfor %}

@@ -231,7 +231,7 @@ div.general_form p {
 }
 
 div.log_entry, div.ticket {
-  width: 550px;
+  width: 700px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -241,19 +241,52 @@ div.log_entry div, div.ticket div {
   padding: 0 4px;
 }
 
-div.ticket div span.creation_date {
+div.ticket div span.creation_date,
+div.ticket div span.name,
+div.log_entry div span.author {
   float: left;
+  max-width: 570px;
 }
 
-div.ticket div span.author {
+div.ticket div span.priority,
+div.ticket div span.status,
+div.log_entry div span.log_date {
   float: right;
+}
+
+div.ticket div span.priority span {
+  margin-left: 25px;
 }
 
 div.log_entry a, div.ticket a {
   text-decoration: none;
 }
 
+div.ticket span.author a {
+  text-decoration: underline;
+  
+}
+
+div.ticket div.ticket_description div.breathing_space {
+	margin: 1em 0;
+}
+
+div.ticket div.ticket_author {
+	padding-bottom: 3px;
+}
+
 div.log_entry span.ui-icon {
   display: inline-block;
   vertical-align: baseline;
+}
+
+div.ticket div.ui-widget-content,
+div.log_entry div.ui-widget-content {
+  background: #eee;
+  color: black;
+}
+
+div.ticket div.ui-widget-content a,
+div.log_entry div.ui-widget-content a{
+  color: black;
 }

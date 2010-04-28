@@ -40,7 +40,7 @@
         "fields": {
             "status": 1, 
             "description": "Everything's broken, plz fix! kthxbye!", 
-            "creator": 4, 
+            "creator": 3, 
             "priority": 1, 
             "close_date": null, 
             "open_date": "2010-04-08", 
@@ -53,7 +53,7 @@
         "fields": {
             "status": 2, 
             "description": "This is the second ticket", 
-            "creator": 6, 
+            "creator": 5, 
             "priority": 2, 
             "close_date": null, 
             "open_date": "2010-04-08", 
@@ -66,7 +66,7 @@
         "fields": {
             "message": "Test message", 
             "ticket": 1, 
-            "user": 4, 
+            "user": 3, 
             "created_date": "2010-04-01"
         }
     }

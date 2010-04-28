@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.utils.html import escape
 
 import datetime
 
@@ -157,8 +158,21 @@ class TicketsTest(TestCase):
         self.assertEqual(t.description, 'ticket description')
         
     def test_view_show(self):
-        # tickets.TicketsTest.test_view_show
         # As a user ISBAT view ticket details
         t = Ticket.objects.all()[0];
-        page = self.get_view("show", kwargs={'ticket':t.pk})
-        self.assertContains(page, t.name);
+        page = self.get_view("show", kwargs={'ticket_id':t.pk})
+        # Assert that all the relevant information is present
+        self.assertContains(page, escape(t.name))
+        self.assertContains(page, escape(str(t.creator)))
+        self.assertContains(page, escape(str(t.status)))
+        self.assertContains(page, escape(t.description))
+        
+    def test_view_new_comment(self):
+        # As a user ISBAT create a comment for a ticket
+        t = Ticket.objects.all()[0];
+        # Make sure the link exists
+        page = self.get_view("show", kwargs={'ticket_id':t.pk})
+        self.assertContains(page, "New Comment");
+        # Verify that there is a form
+        page = self.get_view("new_comment", kwargs={'ticket_id':t.pk})
+        self.assertContains(page, "Message")

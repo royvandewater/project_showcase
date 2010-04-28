@@ -10,6 +10,7 @@ from models import *
 def index(request):
     content = Content.objects.get(name='tickets')
     tickets = Ticket.objects.all()
+    list_view = True
     return render_to_response('tickets/index.html', locals(), context_instance=RequestContext(request))
 
 @login_required
@@ -32,5 +33,6 @@ def new(request):
     submit_action = reverse('tickets.views.new')
     return render_to_response('tickets/new.html', locals(), context_instance=RequestContext(request))
 
-def show(request, ticket):
-    return render_to_response('tickets/new.html', locals(), context_instance=RequestContext(request))
+def show(request, ticket_id):
+    ticket = Ticket.objects.get(pk=ticket_id);
+    return render_to_response('tickets/show.html', locals(), context_instance=RequestContext(request))
