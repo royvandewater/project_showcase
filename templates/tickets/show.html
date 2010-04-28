@@ -2,4 +2,6 @@
 
 {% block main_content %}
     {% include "tickets/ticket.html" %}
+    
+    <a href="{% url tickets.views.new_comment ticket.pk %}">New Comment</a>
 {% endblock %}

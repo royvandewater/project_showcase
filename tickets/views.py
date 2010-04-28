@@ -36,3 +36,10 @@ def new(request):
 def show(request, ticket_id):
     ticket = Ticket.objects.get(pk=ticket_id);
     return render_to_response('tickets/show.html', locals(), context_instance=RequestContext(request))
+
+def new_comment(request, ticket_id):
+    form = NewCommentForm()
+    
+    submit_value = "Post"
+    submit_action = reverse('tickets.views.new_comment', kwargs={'ticket_id': ticket_id})
+    return render_to_response('tickets/new_comment.html', locals(), context_instance=RequestContext(request))

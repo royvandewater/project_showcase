@@ -5,3 +5,6 @@ class NewTicketForm(forms.Form):
     name        = forms.CharField(max_length=255, required=True)
     priority    = forms.IntegerField()
     description = forms.CharField(max_length=512, widget=forms.Textarea)
+
+class NewCommentForm(forms.Form):
+    message     = forms.CharField(max_length=512, widget=forms.Textarea)

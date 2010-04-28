@@ -10,7 +10,7 @@
   </div>
   <div class="ticket_author ui-widget-content">
     <span class="author">
-      <a href="#">{{ ticket.creator.user.get_full_name }}</a>
+      <a href="#">{{ ticket.creator }}</a>
     </span>
     <span class="priority">Created: {{ ticket.open_date|date:"m/d/Y" }} <span>Priority: {{ ticket.priority }}</span></span>
     <div class="clearboth"></div>

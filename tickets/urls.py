@@ -5,4 +5,5 @@ urlpatterns = patterns('tickets.views',
     (r'^$', 'index'),
     (r'new/$', 'new'),
     (r'show/(?P<ticket_id>\d+)/$', 'show'),
+    (r'new_comment/(?P<ticket_id>\d+)/$', 'new_comment'),
 )

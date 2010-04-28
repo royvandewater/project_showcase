@@ -163,7 +163,7 @@ class TicketsTest(TestCase):
         page = self.get_view("show", kwargs={'ticket_id':t.pk})
         # Assert that all the relevant information is present
         self.assertContains(page, escape(t.name))
-        self.assertContains(page, escape(str(t.creator)))
+        self.assertContains(page, escape(str(t.creator.user)))
         self.assertContains(page, escape(str(t.status)))
         self.assertContains(page, escape(t.description))
         
